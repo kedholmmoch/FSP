@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.login = login;
 
+
     // testing end
     
     const root = document.getElementById('root');

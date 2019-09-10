@@ -19,9 +19,12 @@ const Header = ({ currentUser, logout }) => {
             <Link className="nav-item" to="/search">Search</Link>
             &nbsp;&nbsp;
             <Link className="nav-item" to="/notifications">Notifications</Link>
+            &nbsp;&nbsp;
+            <Link to="/login">{currentUser.username}</Link>
+            &nbsp;&nbsp;
+            {/* <Link to="/signup">Get started</Link>
             
-            <h5 className="nav-item">{currentUser.username}</h5>
-            
+            <h5 className="nav-item">{currentUser.username}</h5> */}
             <span className="nav-item"><button onClick={logout}>Sign out</button></span>
         </nav>
     );
