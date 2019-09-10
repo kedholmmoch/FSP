@@ -20,7 +20,7 @@ const Header = ({ currentUser, logout }) => {
             &nbsp;&nbsp;
             <Link className="nav-item" to="/notifications">Notifications</Link>
             &nbsp;&nbsp;
-            <Link to="/login">{currentUser.username}</Link>
+            <Link to="">{currentUser.username}</Link>
             &nbsp;&nbsp;
             {/* <Link to="/signup">Get started</Link>
             

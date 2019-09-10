@@ -6,17 +6,7 @@ import Root from './components/root';
 
 //testing
 
-// import {
-//     postUser,
-//     postSession,
-//     deleteSession
-// } from './util/session_api_util';
 
-// import {  
-//     signup,
-//     login,
-//     logout
-// } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -41,10 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // testing start
-
-    // window.postUser = postUser;
-    // window.postSession = postSession;
-    // window.deleteSession = deleteSession;
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;

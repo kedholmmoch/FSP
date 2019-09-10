@@ -7,6 +7,8 @@ import {
     Switch
 } from 'react-router-dom';
 
+import { AuthRoute } from '../util/route_util';
+
 import HeaderContainer from './header/header_container';
 import SignInFormContainer from './session/SignInFormContainer';
 import SignUpFormContainer from './session/SignUpFormContainer';
@@ -15,8 +17,8 @@ import SignUpFormContainer from './session/SignUpFormContainer';
 const App = () => (
     <div>
         <HeaderContainer />
-        <Route path="/signup" component={SignUpFormContainer}/>
-        <Route path="/login" component={SignInFormContainer}/>
+        <AuthRoute path="/signup" component={SignUpFormContainer}/>
+        <AuthRoute path="/login" component={SignInFormContainer}/>
     </div>
 );
 
