@@ -12,6 +12,12 @@ import Root from './components/root';
 //     deleteSession
 // } from './util/session_api_util';
 
+import {  
+    signup,
+    login,
+    logout
+} from './actions/session_actions';
+
 document.addEventListener('DOMContentLoaded', () => {
     
     const store = configureStore();
@@ -24,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+
+    window.login = login;
 
     // testing end
     

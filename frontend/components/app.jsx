@@ -1,8 +1,10 @@
 import React from 'react';
 
+import HeaderContainer from './header/header_container';
+
 const App = () => (
     <div>
-        <h1>Materia -- Get Started</h1>
+        <HeaderContainer />
     </div>
 );
 
