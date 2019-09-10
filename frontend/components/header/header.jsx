@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ currentUser, logout }) => {
+const Header = ({ currentUser, logout, openModal }) => {
     const sessionLinks = () => (
         <nav className="external-header-nav">
             <Link to="/search">Search</Link>
             &nbsp;&nbsp;
             <Link to="/about">About</Link>
             &nbsp;&nbsp;
-            <Link to="/login">Sign in</Link>
+            {/* <Link to="/login">Sign in</Link> */}
+            <button onClick={() => openModal('Sign in')}>Sign in</button>
             &nbsp;&nbsp;
-            <Link to="/signup">Get started</Link>
+            {/* <Link to="/signup">Get started</Link> */}
+            <button onClick={() => openModal('Sign up')}>Get started</button>
         </nav>
     );
 
@@ -22,9 +24,6 @@ const Header = ({ currentUser, logout }) => {
             &nbsp;&nbsp;
             <Link to="">{currentUser.username}</Link>
             &nbsp;&nbsp;
-            {/* <Link to="/signup">Get started</Link>
-            
-            <h5 className="nav-item">{currentUser.username}</h5> */}
             <span className="nav-item"><button onClick={logout}>Sign out</button></span>
         </nav>
     );

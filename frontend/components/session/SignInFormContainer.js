@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
+// import React from 'react';
 
-import SessionForm from './sessionForm';
 import { login } from '../../actions/session_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
+import SessionForm from './sessionForm';
 
 const mapStateToProps = state => {
 
@@ -15,6 +17,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(login(user)),
+        openModal: (modal) => dispatch(openModal(modal)),
+        closeModal: () => dispatch(closeModal()),
     }
 };
 
