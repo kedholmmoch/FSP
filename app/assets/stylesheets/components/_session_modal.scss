@@ -75,7 +75,7 @@
     margin-bottom: 8px;
 }
 
-.session-form-box .session-input {
+.session-input {
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 4px;
     height: 37px;
@@ -84,6 +84,10 @@
     box-shadow: 0 1px 7px rgba(0,0,0,.05);
     color: rgb(0,0,0);
     margin-bottom: 18px;
+}
+
+.session-input:hover {
+    border-color: rgba(0,0,0,.84);
 }
 
 .session-errors {
@@ -96,8 +100,8 @@
 .session-submit {
     border: 1px solid #03a87c; 
     border-radius: 4px;
-    width: 110px;
-    height: 37px;
+    width: 105px;
+    height: 34px;
     margin: 0 auto;
     padding: 0 18px;
     display: flex;
@@ -105,8 +109,14 @@
     justify-content: center;
     box-shadow: 0 1px 7px rgba(0,0,0,.05);
     color: #03a87c;
+    font-size: 14px;
     margin-top: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+.session-submit:hover {
+    color: rgb(8, 134, 101);
+    border-color: rgb(8, 134, 101);
 }
 
 .session-form-links {
@@ -120,17 +130,26 @@
     color: #03a87c;
 }
 
+.other-session-link:hover {
+    color: rgb(8, 134, 101);
+}
+
 .demo-button {
     width: 100px;
     margin: 0 auto;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 35px;
+    padding: 2.5px, 0px;
 }
 
 .demo-button > button {
     color: rgb(8, 134, 101);
     font-size: 15.5px;
     font-weight: bolder;
+}
+
+.demo-button > button:hover {
+    background-color: rgba(8,134,101,.05);
 }
 
 .close-x {
@@ -142,6 +161,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.close-x:hover {
+    color: rgba(0, 0, 0, 0.84);
 }
 
 #session-close-x {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = ({ currentUser, logout, openModal }) => {
     const sessionLinks = () => (
         <nav className="external-header-nav">
-            <Link className="nav-search-button" to="/search"><i className="fa fa-search"></i></Link>
+            <Link id="nav-search-button" to="/search"><i className="fa fa-search"></i></Link>
             &nbsp;&nbsp;
             <Link className="nav-about-button" to="/about">Our story</Link>
             &nbsp;&nbsp;
@@ -16,7 +16,7 @@ const Header = ({ currentUser, logout, openModal }) => {
 
     const loggedInHeader = () => (
         <nav className="internal-header-nav">
-            <Link className="nav-search-button" to="/search"><i className="fa fa-search"></i></Link>
+            <Link className="nav-item" id="nav-search-button" to="/search"><i className="fa fa-search"></i></Link>
             &nbsp;&nbsp;
             <Link className="nav-item" id="nav-notifications-button" to="/notifications"><i className="fa fa-bell"></i></Link>
             &nbsp;&nbsp;
