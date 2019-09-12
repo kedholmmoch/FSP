@@ -1,0 +1,2 @@
+class Essay < ApplicationRecord
+end
