@@ -57,7 +57,7 @@ export const updateEssay = essay => dispatch => (
 
 export const deleteEssay = id => dispatch => (
     EssayApiUtil.deleteEssay(id)
-        .then(essay => dispatch(receiveSingleEssay(essay)),
+        .then(essay => dispatch(removeEssay(essay)),
             err => dispatch(receiveEssayErrors(err.responseJSON))
     )
 );
