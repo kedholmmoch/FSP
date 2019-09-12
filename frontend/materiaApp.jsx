@@ -6,6 +6,7 @@ import Root from './components/root';
 
 //testing
 
+import * as EssayApiUtil from './util/essay_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+
+    window.EssayApiUtil = EssayApiUtil;
 
     // testing end
     

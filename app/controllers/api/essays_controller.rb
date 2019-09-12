@@ -1,6 +1,10 @@
 class Api::EssaysController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
+
+    ## NEED PRIVATE METHODS TO LIMIT EDIT/DESTROY TO ESSAY'S AUTHOR
+
+
     def create
         @essay = Essay.new(essay_params)   ### get required 'title' and 'body'
         
@@ -53,11 +57,13 @@ class Api::EssaysController < ApplicationController
     end
 
 =begin
+
     will need to define, probably:
 
     def publish
 
     end
+    
 
     def feature
 
