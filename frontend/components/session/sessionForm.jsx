@@ -84,7 +84,7 @@ class SessionForm extends React.Component {
                         <i id="session-close-x" className="fa fa-times"></i>
                     </div>
                     <h1 id="session-welcome-msg">{welcomeMessage}</h1>
-                    <h2 id="session-welcome-para">{formMessage} to find great essays, share your voice, and keept up with authors and topics that you love.</h2>
+                    <h2 id="session-welcome-para">{formMessage} to find great essays, share your voice, and keep up with authors and topics that you love.</h2>
                     <div className="session-errors">{this.renderErrors()}</div>
                     <div className="session-form-box"><form onSubmit={this.handleSubmit} >
                         <h2 className="session-label">Username</h2>
