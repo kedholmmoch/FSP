@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+### USERS
+
 # Demo User
+
+=begin
 
 User.create(
     username: 'UserDemo', 
@@ -39,3 +43,12 @@ User.create(
     profile_name: "Marcus Tullius Cicero", 
     profile_blurb: "Arpinate by birth, Roman in all that matters. I write on politics, law, philosophy, language, and morality. Savior of the Republic."
 )
+
+=end 
+
+##  Up until here has been seeded on my computer + onto my Heroku -- thus the commenting out
+
+
+###  ESSAYS
+
+

@@ -1,0 +1,1 @@
+json.extract! essay, :id, :title, :body, :user_id, :summary, :image_url

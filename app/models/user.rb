@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  profile_name    :string
+#  profile_blurb   :string
+#  twitter_url     :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  image_url       :string
+#
+
 class User < ApplicationRecord
     validates :username, :password_digest, :session_token, presence: true
     validates :username, uniqueness: true
@@ -8,6 +24,11 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     
+    has_many :essays,
+    class_name: 'Essay',
+    primary_key: :id,
+    foreign_key: :user_id
+
 
     def password=(password)
         @password = password

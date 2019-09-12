@@ -18,12 +18,17 @@ class Api::UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        render :show
+
+        if @user
+            render :show
+        else
+            render json: @user.errors.full_messages, status: 404
+        end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :profile_name, :profile_blurb, :twitter_url)
+        params.require(:user).permit(:username, :password, :profile_name, :profile_blurb, :twitter_url, :image_url)
     end
 end
