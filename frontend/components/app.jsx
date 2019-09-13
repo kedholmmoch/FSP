@@ -10,6 +10,7 @@ import {
 
 import Modal from './modal/modal';
 import HeaderContainer from './header/header_container';
+import Feed from './feed/feed';
 
 import { AuthRoute } from '../util/route_util';
 import SignInFormContainer from './session/SignInFormContainer';
@@ -20,10 +21,14 @@ const App = () => (
     <div>
         <Modal />
         <HeaderContainer />
+        <Switch>
+
+            <Route path="/" component={Feed}/>
+        </Switch>
 
         {/* <AuthRoute path="/signup" component={SignUpFormContainer}/>
         <AuthRoute path="/login" component={SignInFormContainer}/> */}
-        
+
     </div>
 );
 
