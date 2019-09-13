@@ -20,9 +20,14 @@ class Api::EssaysController < ApplicationController
 
     def index
 
-        ### will eventually need logic to filter
+        return_function = Essay.all
 
-        @essays = Essay.all   ### will eventually need .includes(:associations)
+        if params[:filter]
+            return_function = Essay.all_featured if params[:filter] == "featured"
+        end
+
+        @essays = params[:filter] ? return_function : Essay.all
+
         render :index
     end
 
@@ -63,7 +68,7 @@ class Api::EssaysController < ApplicationController
     def publish
 
     end
-    
+
 
     def feature
 

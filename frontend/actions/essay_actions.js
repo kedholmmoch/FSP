@@ -27,8 +27,8 @@ const receiveEssayErrors = errors => ({
 });
 
 
-export const fetchEssays = () => dispatch => (
-    EssayApiUtil.fetchEssays()
+export const fetchEssays = filters => dispatch => (
+    EssayApiUtil.fetchEssays(filters)
         .then(essays => dispatch(receiveEssays(essays)),
             err => dispatch(receiveEssayErrors(err.responseJSON))
     )

@@ -1,11 +1,11 @@
 
 // may have to add a (data) param in here when I need to filter by user or other qualifications...
 
-export const fetchEssays = (/* data */) => (
+export const fetchEssays = data => (
     $.ajax({
         method: 'GET',
         url: 'api/essays',
-        // data
+        data,
     })
 );
 
