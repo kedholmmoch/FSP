@@ -15,7 +15,9 @@ header {
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     font-size: 13.5px;
-    margin: 0 auto;
+    margin: 0 49px auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .wordmark {
@@ -37,6 +39,10 @@ header {
 
 
 // Logged-out user navigation bar
+
+.external-heaver-nav {
+    float: right;
+}
 
 .nav-about-button {
     color: rgba(0,0,0,.54);
@@ -72,6 +78,10 @@ header {
 
 
 // Logged-in user navigation bar
+
+.internal-heaver-nav {
+    float: right;
+}
 
 .nav-item {
     margin-right: 16px;

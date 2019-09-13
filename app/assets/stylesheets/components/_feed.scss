@@ -1,0 +1,86 @@
+$mid-gray: rgba(0,0,0,.54);
+$darker-gray: rgba(0,0,0,.84);
+
+.main-content {
+    width: 100%;
+}
+
+// Topic Links Subheader
+
+.feed-subheader-list-container {
+    color: $mid-gray;
+    font-size: 13px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.feed-subheader-list {
+    display: flex;
+    // width: 100%;
+    // height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    
+}
+
+.subheader-home {
+    color: $darker-gray;
+    font-weight: bold;
+}
+
+.subheader-link {
+    margin-left: 26px;
+}
+
+
+// Featured Essays Index
+
+.featured-essays-container {
+    max-width: 1208px;
+    height: 395px;
+}
+
+.featured-essays-list-wide {
+    width: 100%;
+    max-width: 1208px;
+    height: 350px;
+    margin-top: 12px auto;
+    padding: 0 16px 16px 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.first-feature {
+    flex-basis: 340px;
+    height: 100%;
+    margin-right: 24px;
+}
+
+.featured-mini-list {
+    flex-basis: 389px;
+    height: 100%;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.second-feature {
+    max-width: 323px;
+    flex-basis: 240px;
+    height: 100%;
+}
+
+h6 {
+    padding: 20px;
+    font-size: 14.5px;
+}

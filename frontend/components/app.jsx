@@ -18,7 +18,7 @@ import SignUpFormContainer from './session/SignUpFormContainer';
 
 
 const App = () => (
-    <div>
+    <div className="page-content">
         <Modal />
         <HeaderContainer />
         <Switch>

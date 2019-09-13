@@ -4,16 +4,14 @@ import { Link } from 'react-router-dom';
 const FeedSubheader = () => {
 
     const subheaderElements = [
-        ["HOME", "/"],
         ["HUMAN PARTS", "/"],
         ["SELF", "/"],
-        ["ART", "/"],
         ["CULTURE", "/"],
         ["WRITING", "/"],
         ["HEATED", "/"],
         ["CREATIVITY", "/"],
         ["HEALTH", "/"],
-        ["PRODUCTIVITY", "/"],
+        ["ART", "/"],
         ["HUMOR", "/"],
         ["TECHNOLOGY", "/"],
         ["MORE", "/"]
@@ -30,8 +28,11 @@ const FeedSubheader = () => {
     });
 
     return (
-        <div id="feed-subheader">
-            <ul id="feed-subheader-list">
+        <div className="feed-subheader-list-container">
+            <ul className="feed-subheader-list">
+                <li key="link-home" className="subheader-home">
+                    <Link to="/">HOME</Link>
+                </li>
                 {subheaderLinks}
             </ul>
         </div>

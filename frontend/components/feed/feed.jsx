@@ -1,5 +1,7 @@
 import React from 'react'
+
 import FeedSubheader from './feedSubheader';
+import FeaturedEssaysIndexContainer from './featuredEssaysIndexContainer';
 
 class Feed extends React.Component {
     constructor(props) {
@@ -8,21 +10,11 @@ class Feed extends React.Component {
 
     render() {
         
-        // const subheaderLinks = ["HOME", "HUMAN PARTS", "SELF", "ART", "CULTURE", 
-        //         "WRITING", "HEATED", "CREATIVITY", "HEALTH", "PRODUCTIVITY", 
-        //         "HUMOR", "TECHNOLOGY", "MORE"].map((link, idx) => (
-        //            <li key={`link-${idx}`}> {link} </li>
-        //         ));
-        
-        // // const subheaderLinks = topicLinks.map((link, idx) => (
-        // //     <li></li>
-        // // ))
-
-        
         return (
             <div className="main-content">
-                <FeedSubheader />
-                <h2>This is the feed.</h2>
+                <FeedSubheader /*className="feed-subheader"*/ />
+                <FeaturedEssaysIndexContainer />
+                <h6>This is the feed.</h6>
             </div>
         );
     }
