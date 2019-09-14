@@ -20,10 +20,10 @@ class Api::EssaysController < ApplicationController
 
     def index
 
-        return_function = Essay.all
+        return_function = Essay.includes(:author).all
 
         if params[:filter]
-            return_function = Essay.all_featured if params[:filter] == "featured"
+            return_function = Essay.includes(:author).all_featured if params[:filter] == "featured"
         end
 
         @essays = params[:filter] ? return_function : Essay.all

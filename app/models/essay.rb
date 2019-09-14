@@ -25,6 +25,12 @@ class Essay < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
+
+    def minutes_to_read
+        word_count = self.body.split(" ").length
+        return (word_count / 200) + 1
+    end
+
     def publish
         self.published = true
         self.published_at = Time.current

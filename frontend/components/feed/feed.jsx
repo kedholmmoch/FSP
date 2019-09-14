@@ -14,7 +14,7 @@ class Feed extends React.Component {
             <div className="main-content">
                 <FeedSubheader /*className="feed-subheader"*/ />
                 <FeaturedEssaysIndexContainer />
-                <h6>This is the feed.</h6>
+                
             </div>
         );
     }

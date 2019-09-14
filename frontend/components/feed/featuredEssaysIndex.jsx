@@ -11,70 +11,96 @@ class FeaturedEssaysIndex extends React.Component {
         };
     }
 
-    componentDidMount() {
-        
+    componentDidMount() {   
         this.props.fetchEssays({filter: "featured"})
             .then(() => this.setState({ isFetching: false }))
     }
 
     render() {
-
         const { isFetching } = this.state;
-
-         // let featured = this.props.essays;
-
-        // if (featured === undefined) {
-        //     this.setState({ isFetching: true })
-        // }
-
-        // if (!this.state.isFetching) {
-
-        console.log(moment().format());
         
         let featured = this.props.essays;
-        // console.log(featured);
-
-        // let featuredOne = featured[0];
-        // console.log(featuredOne);
-            
+      
         let featureOne = featured[0];
-        // console.log(featureOne);
         let featureTwo = featured[1];
         let featureList = featured.slice(2, 5);
 
         function mainFeatureDisplay(essay) {
             const datetime = moment(essay["published_at"]).format("MMM Do");
-
+            const minutesToRead = essay["minutes_to_read"];
+            
             return(
-            <div>
-                <Link to={`/essays/${essay.id}`}><img src={essay.image_url} alt={essay.title} /></Link>
-                <Link to={`/essays/${essay.id}`}>{essay.title}</Link>
-                <Link to={`/essays/${essay.id}`}>{essay.summary}</Link>
-                <Link to={`/users/${essay.user_id}`}></Link>
-                <h4>{datetime} &nbsp;&nbsp;&nbsp;&nbsp; 5 min read </h4>
-            </div>
+                <div className="feat-container">
+                    <Link className="feat-img" to={`/essays/${essay.id}`}>
+                        <img src={essay.image_url} alt={essay.title} /></Link>
+                    <div className="feat-info">
+                        <div className="feat-head">
+                            <Link className="feat-title" to={`/essays/${essay.id}`}>
+                                {essay.title}</Link>
+                            <Link className="feat-summary" to={`/essays/${essay.id}`}>
+                                {essay.summary}</Link>
+                        </div>
+                        <div className="feat-sub-info">
+                            <Link className="feat-auth" 
+                                to={`/users/${essay.user_id}`}>
+                                {essay.author}</Link>
+                            <span className="feat-date">{datetime} 
+                                &nbsp;&nbsp;&#183;&nbsp;&nbsp; 
+                                {minutesToRead} min read </span>
+                        </div>
+                    </div>
+                </div>
             );
+        };
+
+        function miniLink(essay) {
+            const datetime = moment(essay["published_at"]).format("MMM Do");
+            const minutesToRead = essay["minutes_to_read"];
+            
+            return (
+                <div className="mini-link-container">
+                    <Link to={`/essays/${essay.id}`}>
+                        <img src={essay.image_url} alt={essay.title}/></Link>
+                    <div className="minilink-essay-info">
+                        <Link className="minilink-title" to={`/essays/${essay.id}`}>
+                            {essay.title}</Link>
+                        <div className="minilink-sub-info">
+                            <Link to={`/users/${essay.user_id}`}>{essay.author}</Link>
+                            <span className="feat-date">{datetime} 
+                                &nbsp;&nbsp;&#183;&nbsp;&nbsp; 
+                                {minutesToRead} min read 
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )
         };
 
         const linksMiniList = (
             <ul className="featured-mini-list">
-                <li>Mini</li>
-                <li>List</li>
+                { featureList.map((essay, idx) => (
+                    <li key={`item=${idx}`}>
+                        {miniLink(essay)}
+                    </li>
+                ))}
             </ul>
         );
             
             return(
                 <div>
                 { isFetching ? <div></div> : (
-                <div className="featured-essays-container">
-                    <ul className="featured-essays-list-wide">
-                        <article className="first-feature">{mainFeatureDisplay(featureOne)}</article>
-                        {linksMiniList}
-                        <article className="second-feature">{mainFeatureDisplay(featureTwo)}</article>
-                    </ul>
-                    <h6>Featured Essays Index</h6>
-                </div>
-                )}
+                    <div className="featured-essays-container">
+                        <ul className="featured-essays-list-wide">
+                            <article className="first-feature">{mainFeatureDisplay(featureOne)}</article>
+                            {linksMiniList}
+                            <article className="second-feature">{mainFeatureDisplay(featureTwo)}</article>
+                        </ul>
+                            <div id="all-featured-link">
+                                <Link to="/essay/featured">SEE ALL FEATURED ></Link>
+                            </div>
+                        <div id="feature-end-padding"></div>
+                    </div>
+                    )}
                 </div>     
             )
         }
