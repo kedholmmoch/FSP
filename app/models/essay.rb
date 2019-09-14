@@ -16,41 +16,50 @@
 #
 
 class Essay < ApplicationRecord
-    validates :title, :body, :user_id, presence: true
-    validates :published, :featured, inclusion: { in: [true, false] }
+  validates :title, :body, :user_id, presence: true
+  validates :published, :featured, inclusion: { in: [true, false] }
 
 
-    belongs_to :author,
-    class_name: 'User',
-    primary_key: :id,
-    foreign_key: :user_id
+  belongs_to :author,
+  class_name: 'User',
+  primary_key: :id,
+  foreign_key: :user_id
 
 
-    def minutes_to_read
-        word_count = self.body.split(" ").length
-        return (word_count / 200) + 1
-    end
+  def minutes_to_read
+    word_count = self.body.split(" ").length
+    return (word_count / 200) + 1
+  end
 
-    def publish
-        self.published = true
-        self.published_at = Time.current
-    end
+  def publish
+    self.published = true
+    self.published_at = Time.current
+  end
 
-    def unpublish
-        self.published = false
-        self.published_at = nil
-    end
+  def unpublish
+    self.published = false
+    self.published_at = nil
+  end
 
-    def feature
-        self.featured = true if self.published
-    end
+  def feature
+    self.featured = true if self.published
+  end
 
-    def unfeature
-        self.featured = false
-    end
+  def unfeature
+    self.featured = false
+  end
 
-    def self.all_featured
-        Essay.where(featured: true)
-    end
+  def self.all_featured
+    Essay.where(featured: true)
+  end
+
+  def self.all_published
+    Essay.where(published: true)
+  end
+
+  ## For testing Feed state load and ajax requests
+  def self.all_unpublished
+    Essay.where(published: false)
+  end
 
 end

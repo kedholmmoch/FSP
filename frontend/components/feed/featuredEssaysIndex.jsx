@@ -7,19 +7,25 @@ class FeaturedEssaysIndex extends React.Component {
         super(props);
 
         this.state = {
-            isFetching: true,
+            // isFetching: true,
         };
     }
 
-    componentDidMount() {   
-        this.props.fetchEssays({filter: "featured"})
-            .then(() => this.setState({ isFetching: false }))
-    }
+    // componentDidMount() {   
+    //     this.props.fetchEssays({filter: "featured"})
+    //         .then(() => this.setState({ isFetching: false }))
+    // }
 
     render() {
-        const { isFetching } = this.state;
+        // const { isFetching } = this.state;
         
-        let featured = this.props.essays;
+        const { essays } = this.props;
+
+        function checkFeatured(essayObj) {
+          return (essayObj["featured"] === true)
+        }
+
+        let featured = essays.filter(checkFeatured)
       
         let featureOne = featured[0];
         let featureTwo = featured[1];
@@ -87,8 +93,8 @@ class FeaturedEssaysIndex extends React.Component {
         );
             
             return(
-                <div>
-                { isFetching ? <div></div> : (
+                // <div>
+                // {isFetching ? <div className="featured-essays-container"></div> : (
                     <div className="featured-essays-container">
                         <ul className="featured-essays-list-wide">
                             <article className="first-feature">{mainFeatureDisplay(featureOne)}</article>
@@ -100,8 +106,8 @@ class FeaturedEssaysIndex extends React.Component {
                             </div>
                         <div id="feature-end-padding"></div>
                     </div>
-                    )}
-                </div>     
+                //     )}
+                // </div>     
             )
         }
     };
