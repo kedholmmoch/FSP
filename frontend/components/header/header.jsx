@@ -1,40 +1,113 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ currentUser, logout, openModal }) => {
-    const sessionLinks = () => (
-        <nav className="external-header-nav">
-            <Link id="nav-search-button" to="/search"><i className="fa fa-search"></i></Link>
-            &nbsp;&nbsp;
-            <Link className="nav-about-button" to="/about">Our story</Link>
-            &nbsp;&nbsp;
-            <button className="sign-in-button" onClick={() => openModal('Sign in')}>Sign in</button>
-            &nbsp;&nbsp;
-            <button className="get-started-button" onClick={() => openModal('Sign up')}>Get started</button>
-        </nav>
+import DropDownMenu from './dropDownMenu';
+
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showDropdown: false,
+    }
+
+    this.showDropdown = this.showDropdown.bind(this);
+    this.closeDropdown = this.closeDropdown.bind(this);
+    this.signOutFromDropDown = this.signOutFromDropDown.bind(this);
+  }
+
+  showDropdown(e) {
+    e.preventDefault();
+    this.setState({
+      showDropdown: true,
+    }, () => {
+      document.addEventListener('click', this.closeDropdown);
+    });
+  }
+
+  closeDropdown() {
+    if (!this.dropdownDOMel.contains(event.target)) {
+      this.setState({
+        showDropdown: false,
+      }, () => {
+        document.removeEventListener('click', this.closeDropdown);
+      });
+    }
+  }
+
+  signOutFromDropDown() {
+    this.setState({
+      showDropdown: false,
+    }, () => {
+      document.removeEventListener('click', this.closeDropdown);
+    });
+    this.props.logout();
+  }
+
+  render() {
+
+    const { currentUser, logout, openModal } = this.props;
+    
+    const avatarLink = (user) => {
+      let fullName = user.profile_name;
+      let nameArray = fullName.split(" ");
+      let first = nameArray[0];
+      let last = nameArray[nameArray.length - 1];
+
+      return first[0] + last[0];
+    };
+
+    let dropdownMenu;
+    dropdownMenu = (this.state.showDropdown === false) ? null : (
+      <div className="dropdown"
+        ref={(element) => {
+          this.dropdownDOMel = element;
+        }}
+      >
+        <DropDownMenu currentUser={currentUser} 
+          logout={logout}
+          signOutFromDropDown={this.signOutFromDropDown}
+          initials={avatarLink(currentUser)}
+        />
+      </div>
     );
 
-    const loggedInHeader = () => (
-        <nav className="internal-header-nav">
-            <Link className="nav-item" id="nav-search-button" to="/search"><i className="fa fa-search"></i></Link>
-            &nbsp;&nbsp;
-            <Link className="nav-item" id="nav-notifications-button" to="/notifications"><i className="fa fa-bell"></i></Link>
-            &nbsp;&nbsp;
-            <button className="nav-item" id="nav-logout-button" onClick={logout}>Sign out</button>
-            &nbsp;&nbsp;
-            <Link className="nav-username" to="">{currentUser.username}</Link>    
-        </nav>
+    const sessionLinks = () => (
+      <nav className="external-header-nav">
+        <Link id="nav-search-button" to="/search"><i className="fa fa-search"></i></Link>
+        <Link className="nav-about-button" to="/about">Our story</Link>
+        <button className="sign-in-button" onClick={() => openModal('Sign in')}>Sign in</button>
+        <button className="get-started-button" onClick={() => openModal('Sign up')}>Get started</button>
+      </nav>
     );
+
+    const loggedInHeader = () => {
+
+      return (
+        <nav className="internal-header-nav">
+          <Link className="nav-item" id="nav-search-button-internal" to="/search"><i className="fa fa-search"></i></Link>
+          <Link className="nav-item" id="nav-notifications-button" to="/notifications"><i className="fa fa-bell"></i></Link>
+          <button className="nav-item" id="nav-logout-button" onClick={logout}>Sign out</button>
+          <div className="nav-username">
+            <button onClick={this.showDropdown}>
+              {avatarLink(currentUser)}
+            </button>
+            <div className="dropdown-background">{dropdownMenu}</div>
+          </div>   
+        </nav>
+      )
+    };
 
     let headerDisplay;
     headerDisplay = currentUser ? loggedInHeader() : sessionLinks();
 
     return (
-        <header>
-                <Link className="wordmark" to="/">Materia</Link>
-                {headerDisplay}
-        </header>
-    );
+      <header>
+        <Link className="wordmark" to="/">Materia</Link>
+        {headerDisplay}
+      </header>
+    )
+  };
 };
 
 export default Header;

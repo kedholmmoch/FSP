@@ -20,3 +20,7 @@ export const deleteSession = () => (
         url: 'api/session',
     })
 );
+
+// export const fetchAvatar = () => (
+//   $.ajax
+// )
