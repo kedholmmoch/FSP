@@ -1,21 +1,25 @@
-import { connect } from 'react-redux';
 
-import FeedScroll from './feedScroll';
-import { fetchEssays } from '../../actions/essay_actions';
+//  COMPONENT IS OBSOLETE -- FUNCTIONALITY REPLACES BY FEEDcONTAINER
 
-const mapStateToProps = state => {
 
-  const essays = Object.values(state.entities.essays);
-  return {
-    essay: essays,
-  };
-};
+// import { connect } from 'react-redux';
 
-const mapDispatchToProps = dispatch => {
+// import FeedScroll from './feedScroll';
+// import { fetchEssays } from '../../actions/essay_actions';
 
-  return {
-    fetchEssays: filters => dispatch(fetchEssays(filters)),
-  };
-};
+// const mapStateToProps = state => {
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeedScroll);
+//   const essays = Object.values(state.entities.essays);
+//   return {
+//     essay: essays,
+//   };
+// };
+
+// const mapDispatchToProps = dispatch => {
+
+//   return {
+//     fetchEssays: filters => dispatch(fetchEssays(filters)),
+//   };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(FeedScroll);

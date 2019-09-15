@@ -327,6 +327,9 @@ $darker-gray: rgba(0,0,0,.84);
   justify-content: space-between;
 }
 
+
+// Feed Scroll Container
+
 .feed-scroll-container {
   max-width: 680px;
   width: 100%;
@@ -335,6 +338,126 @@ $darker-gray: rgba(0,0,0,.84);
   display: flex;
   flex-direction: column;
 }
+
+.feed-scroll-list .scroll-item {
+  max-width: 680px;
+  width: 100%;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.scroll-item-info {
+  min-width: 0px;
+  flex: 1 1 auto;
+  margin-right: 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-item-msg {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: .03em;
+  color: $mid-gray;
+}
+
+.scroll-item-title {
+  max-height: 84px;
+  line-height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 800;
+  font-size: 18.5px;
+  color: $darker-gray;
+  letter-spacing: -.52px;
+}
+
+.scroll-item-summary {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 13.5px;
+  color: $mid-gray;
+  margin-top: 2px;
+}
+
+.scroll-item-sub-container {
+  min-width: 0px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scroll-item-sub-info {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+}
+
+.scroll-item-auth {
+  color: $darker-gray;
+}
+
+.scroll-item-date {
+  color: $mid-gray;
+  font-weight: 400;
+}
+
+.icon-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+}
+
+.icon-div:last-of-type {
+  margin-left: 4px;
+}
+
+.icon-div button {
+  width: 25px;
+  height: 25px;
+  color: $mid-gray;
+  align-self: center;
+  white-space: normal;
+}
+
+// .icon-div button:last-of-type {
+//   margin-left: 4px;
+// }
+
+// .ellipsis-icon-div {
+//   width: 25px;
+//   height: 25px;
+//   color: $mid-gray;
+//   align-self: center;
+//   vertical-align: bottom;
+// }
+
+.scroll-item-img {
+  width: 152px;
+  max-height: 100%;
+  object-fit: cover;
+  float: right;
+}
+
+// Feed Sidebar
 
 .feed-sidebar {
   max-width: 328px;

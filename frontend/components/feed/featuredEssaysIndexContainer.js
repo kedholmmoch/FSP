@@ -1,22 +1,26 @@
-import { connect } from 'react-redux';
 
-import FeaturedEssaysIndex from './featuredEssaysIndex';
-import { fetchEssays } from '../../actions/essay_actions';
+// COMPONENT IS OBSOLETE -- FUNCTIONALITY REPLACES BY FEEDcONTAINER
 
-const mapStateToProps = state => {
 
-    const essays = Object.values(state.entities.essays)
+// import { connect } from 'react-redux';
+
+// import FeaturedEssaysIndex from './featuredEssaysIndex';
+// import { fetchEssays } from '../../actions/essay_actions';
+
+// const mapStateToProps = state => {
+
+//     const essays = Object.values(state.entities.essays)
     
-    return {
-        essays: essays,
-    };
-};
+//     return {
+//         essays: essays,
+//     };
+// };
 
-const mapDispatchToProps = dispatch => {
+// const mapDispatchToProps = dispatch => {
 
-    return {
-        fetchEssays: filters => dispatch(fetchEssays(filters))
-    };
-};
+//     return {
+//         fetchEssays: filters => dispatch(fetchEssays(filters))
+//     };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeaturedEssaysIndex);
+// export default connect(mapStateToProps, mapDispatchToProps)(FeaturedEssaysIndex);
