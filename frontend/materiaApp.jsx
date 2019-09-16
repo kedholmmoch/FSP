@@ -8,51 +8,51 @@ import Root from './components/root';
 
 import * as EssayApiUtil from './util/essay_api_util';
 
-import {
-    fetchEssay,
-    fetchEssays,
-    postEssay,
-    updateEssay,
-    deleteEssay
-} from './actions/essay_actions';
+// import {
+//    fetchEssay,
+//    fetchEssays,
+//    postEssay,
+//    updateEssay,
+//    deleteEssay
+// } from './actions/essay_actions';
 
 //testing end
 
+
 document.addEventListener('DOMContentLoaded', () => {
-    
-    let store;
+  
+  let store;
 
-    if (window.currentUser) {
+  if (window.currentUser) {
 
-        const preloadedState = {
-            entities: {
-                users: {
-                    [window.currentUser.id]: window.currentUser
-                }
-            },
-            session: { id: window.currentUser.id }
-        };
+    const preloadedState = {
+      entities: {
+        users: {
+          [window.currentUser.id]: window.currentUser
+        }
+      },
+      session: { id: window.currentUser.id }
+    };
 
-        store = configureStore(preloadedState);
-        delete window.currentUser;
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
+  
+  // testing start
 
-    } else {
-        store = configureStore();
-    }
-    
-    // testing start
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
 
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+  // window.fetchEssay = fetchEssay;
+  // window.fetchEssays = fetchEssays;
+  // window.postEssay = postEssay;
+  // window.updateEssay = updateEssay;
+  // window.deleteEssay = deleteEssay;
 
-    window.fetchEssay = fetchEssay;
-    window.fetchEssays = fetchEssays;
-    window.postEssay = postEssay;
-    window.updateEssay = updateEssay;
-    window.deleteEssay = deleteEssay;
-
-    // testing end
-    
-    const root = document.getElementById('root');
-    ReactDOM.render(<Root store={store}/>, root);
+  // testing end
+  
+  const root = document.getElementById('root');
+  ReactDOM.render(<Root store={store}/>, root);
 });

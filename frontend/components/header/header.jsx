@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import DropDownMenu from './dropDownMenu';
 
@@ -14,6 +14,7 @@ class Header extends React.Component {
     this.showDropdown = this.showDropdown.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
     this.signOutFromDropDown = this.signOutFromDropDown.bind(this);
+    this.redirectFromDropDown = this.redirectFromDropDown.bind(this);
   }
 
   showDropdown(e) {
@@ -44,6 +45,15 @@ class Header extends React.Component {
     this.props.logout();
   }
 
+  redirectFromDropDown(linkPath) {
+    this.setState({
+      showDropdown: false,
+    }, () => {
+      document.removeEventListener('click', this.closeDropdown);
+    });
+    this.props.history.push(linkPath);
+  }
+
   render() {
 
     const { currentUser, logout, openModal } = this.props;
@@ -67,6 +77,7 @@ class Header extends React.Component {
         <DropDownMenu currentUser={currentUser} 
           logout={logout}
           signOutFromDropDown={this.signOutFromDropDown}
+          redirectFromDropDown={this.redirectFromDropDown}
           initials={avatarLink(currentUser)}
         />
       </div>
@@ -110,4 +121,4 @@ class Header extends React.Component {
   };
 };
 
-export default Header;
+export default withRouter(Header);

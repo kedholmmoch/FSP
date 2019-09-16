@@ -4,11 +4,22 @@ import { Link } from 'react-router-dom';
 class DropDownMenu extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleLinkClick = this.handleLinkClick.bind(this);
+  }
+
+  handleLinkClick(linkPath) {
+    this.props.redirectFromDropDown(linkPath);
   }
 
   render() {
 
-    const { currentUser, initials, signOutFromDropDown } = this.props;
+    const { 
+      currentUser, 
+      initials, 
+      signOutFromDropDown,
+      // redirectFromDropDown 
+    } = this.props;
 
     return(
       <div>
@@ -19,27 +30,43 @@ class DropDownMenu extends React.Component {
                 {initials}
               </div>
               <div className="dd-user-text">
-                <Link id="dd-user-name" to={`/users/${currentUser.id}`}>
-                  {currentUser.profile_name}</Link>
-                <Link id="dd-user-username"to={`/users/${currentUser.id}`}>
-                  @{currentUser.username}</Link>
+                <button id="dd-user-username" 
+                  onClick={() => this.handleLinkClick(`/users/${currentUser.id}`)}>
+                  {currentUser.profile_name}</button>
+                <button id="dd-user-username" 
+                  onClick={() => this.handleLinkClick(`/users/${currentUser.id}`)}>
+                  @{currentUser.username}</button>
               </div></li>
-            <li className="dd-link"><Link className="dd-link-about" 
-                to="/about">About Materia</Link></li>
+            <li className="dd-link">
+              <button className="dd-link-about"
+                onClick={() => this.handleLinkClick('/about')}>
+                About Materia</button></li>
+                
             <li className="dd-separator"></li>
-            <li className="dd-link"><Link className="dd-link-text" 
-                to="/essays/new">New Essay</Link></li>
-            <li className="dd-link"><Link className="dd-link-text" 
-                to={`/users/${currentUser.id}/essays`}>Essays</Link></li>
-            <li className="dd-link"><Link className="dd-link-text" 
-                to={`/users/${currentUser.id}/bookmarks`}>Bookmarks</Link></li>
+            <li className="dd-link">
+              <button className="dd-link-text" 
+                onClick={() => this.handleLinkClick('/essays/new')}>
+                New Essay </button></li>
+            <li className="dd-link">
+              <button className="dd-link-text"
+                onClick={()=>this.handleLinkClick(`/users/${currentUser.id}/essays`)}>
+                Essays</button></li>
+            <li className="dd-link">
+              <button className="dd-link-text" 
+                onClick={() => this.handleLinkClick(`/users/${currentUser.id}/bookmarks`)}> 
+                Bookmarks</button></li>
+
             <li className="dd-separator"></li>
-            <li className="dd-link"><Link className="dd-link-text" 
-                to={`/users/${currentUser.id}`}>Profile</Link></li>
-            <li className="dd-link"><Link className="dd-link-text" 
-                to="">Settings</Link></li>
-            <li className="dd-link"><Link className="dd-link-text" 
-                to="">Help</Link></li>
+            <li className="dd-link">
+              <button className="dd-link-text"
+                onClick={() => this.handleLinkClick(`/users/${currentUser.id}`)}>
+                Profile</button></li>
+            <li className="dd-link">
+              <button className="dd-link-text" 
+                onClick={() => this.handleLinkClick('/')}>Settings</button></li> 
+            <li className="dd-link">
+              <button className="dd-link-text" 
+                onClick={() => this.handleLinkClick('/')}>Help</button></li>
             <li className="dd-link">
               <button onClick={signOutFromDropDown}>Sign Out</button></li>
           </ul>) : (nil) 
