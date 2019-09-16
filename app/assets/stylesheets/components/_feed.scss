@@ -438,18 +438,6 @@ $darker-gray: rgba(0,0,0,.84);
   white-space: normal;
 }
 
-// .icon-div button:last-of-type {
-//   margin-left: 4px;
-// }
-
-// .ellipsis-icon-div {
-//   width: 25px;
-//   height: 25px;
-//   color: $mid-gray;
-//   align-self: center;
-//   vertical-align: bottom;
-// }
-
 .scroll-item-img {
   width: 152px;
   max-height: 100%;
@@ -457,11 +445,170 @@ $darker-gray: rgba(0,0,0,.84);
   float: right;
 }
 
+
 // Feed Sidebar
 
-.feed-sidebar {
+.feed-sidebar-container {
   max-width: 328px;
   height: inherit;
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
+  // position: fixed;
+  // bottom: 0;
+  // right: 0;
+}
+
+// .fixed-position-div {
+//   width: 100%;
+//   height: inherit;
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+// }
+
+.feed-sidebar {
+  width: 100%;
+}
+
+.recent-essays {
+  margin-bottom: 40px;
+  width: 100%;
+  line-height: 20px;
+}
+
+.recent-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 8px;
+  background-color: #D7EFEE;
+  min-height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.recent-header-text {
+  font-weight: 400px;
+  line-height: 28px;
+  font-size: 20px;
+  letter-spacing: -.22px;
+  color: $darker-gray;
+  padding-right: 24px;
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 0px;
+}
+
+.recent-header img {
+  width: 135px;
+}
+
+.recents-list {
+  background-color: #fafafa;
+  padding: 32px;
+  list-style: none;
+  margin-top: 0px;
+}
+
+.recents-list li {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.recent-item-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.recent-item-info {
+  min-width: 200px;
+  margin-left: 16px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left; 
+  justify-content: flex-start;
+}
+
+.recent-item-title {
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: $darker-gray;
+  line-height: 20px;
+  margin-bottom: 4px;
+  letter-spacing: -.52px;
+}
+
+.recent-item-sub-info {
+  // margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+}
+
+.recent-item-auth {
+  color: $darker-gray;
+}
+
+.recent-item-date {
+  color: $mid-gray;
+  font-weight: 400;
+}
+
+// .popular-essays {
+
+// }
+
+.feed-sidebar-container footer {
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-left: 24px;
+  width: 100%;
+}
+
+.feed-footer-text {
+  border-top: 1px solid rgba(0,0,0,.05);
+  padding-top: 10px;
+  padding-bottom: 25px;
+  // position: fixed;
+  // bottom: 0;
+}
+
+.feed-footer-text ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+.feed-footer-text ul li {
+  font-size: 13px;
+  line-height: 20px;
+  color: $mid-gray;
+  font-weight: 400px;
+  margin-right: 16px;
+  margin-bottom: 2px;
+  flex: 0 0 auto;
+}
+
+.feed-footer-text ul li:hover {
+  text-decoration: underline;
 }

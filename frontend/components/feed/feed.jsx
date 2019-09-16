@@ -3,6 +3,7 @@ import React from 'react'
 import FeedSubheader from './feedSubheader';
 import FeaturedEssaysIndex from './featuredEssaysIndex';
 import FeedScroll from './feedScroll';
+import FeedSidebar from './feedSidebar';
 
 class Feed extends React.Component {
 	constructor(props) {
@@ -21,7 +22,6 @@ class Feed extends React.Component {
 	render() {
 
 		let { isFetching } = this.state;
-		
 		const {essays} = this.props;
 
 		return (
@@ -32,8 +32,8 @@ class Feed extends React.Component {
 						<FeaturedEssaysIndex essays={essays} />
 						<div className="feed-lower-content">
 							<FeedScroll essays={essays}/>
-
-							<div className="feed-sidebar">Feed Sidebar!</div>
+							<FeedSidebar essays={essays}/>
+							{/* <div className="feed-sidebar">Feed Sidebar!</div> */}
 						</div>					
 					</div>
 				)}

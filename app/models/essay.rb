@@ -54,7 +54,7 @@ class Essay < ApplicationRecord
   end
 
   def self.all_published
-    Essay.where(published: true)
+    Essay.where(published: true).order(published_at: :desc)
   end
 
   ## For testing Feed state load and ajax requests

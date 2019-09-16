@@ -45,7 +45,7 @@ class FeedScroll extends React.Component {
                   to={`/users/${essay.user_id}`}>
                   {essay.author}</Link>
                 <span className="scroll-item-date">{datetime}
-                  &nbsp;&nbsp;&#183;&nbsp;&nbsp;
+                  &nbsp;&nbsp; &#183; &nbsp;&nbsp;
                     {minutesToRead} min read </span>
               </div>
               <div className="icon-div">
