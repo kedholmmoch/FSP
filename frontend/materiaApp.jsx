@@ -8,13 +8,6 @@ import Root from './components/root';
 
 import * as EssayApiUtil from './util/essay_api_util';
 
-// import {
-//    fetchEssay,
-//    fetchEssays,
-//    postEssay,
-//    updateEssay,
-//    deleteEssay
-// } from './actions/essay_actions';
 
 //testing end
 
@@ -45,11 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  // window.fetchEssay = fetchEssay;
-  // window.fetchEssays = fetchEssays;
-  // window.postEssay = postEssay;
-  // window.updateEssay = updateEssay;
-  // window.deleteEssay = deleteEssay;
 
   // testing end
   

@@ -49,7 +49,7 @@ class DropDownMenu extends React.Component {
                 New Essay </button></li>
             <li className="dd-link">
               <button className="dd-link-text"
-                onClick={()=>this.handleLinkClick(`/users/${currentUser.id}/essays`)}>
+                onClick={()=>this.handleLinkClick(`/users/${currentUser.id}/essays/drafts`)}>
                 Essays</button></li>
             <li className="dd-link">
               <button className="dd-link-text" 

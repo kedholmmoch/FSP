@@ -57,6 +57,19 @@ class Essay < ApplicationRecord
     Essay.where(published: true).order(published_at: :desc)
   end
 
+  def self.user_essays(user_id)
+    Essay.where(user_id: user_id).order(updated_at: :desc)
+  end
+
+  def self.user_published(user_id)
+    Essay.where(user_id: user_id, published: true).order(published_at: :desc)
+  end
+
+  def self.user_unpublished(user_id)
+    Essay.where(user_id: user_id, published: false).order(updated_at: :desc)
+  end
+
+
   ## For testing Feed state load and ajax requests
   def self.all_unpublished
     Essay.where(published: false)

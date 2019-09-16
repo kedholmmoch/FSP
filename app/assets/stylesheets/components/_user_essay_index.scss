@@ -1,0 +1,110 @@
+$mid-gray: rgba(0,0,0,.54);
+$darker-gray: rgba(0,0,0,.84);
+$light-green: #03a87c;
+$darker-green: rgb(8, 134, 101);
+
+
+// User Essay Index Top and Header
+
+.user-essay-index {
+  width: 100%;
+  min-height: 100vh;  
+}
+
+.user-index-topblank {
+  margin-bottom: 50px;
+  color: (0,0,0,.9);
+  height: 15px; 
+  width: 100vw;
+  display: block;
+  box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.05) inset;
+}
+
+.user-index-main {
+  max-width: 1080px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 64px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.user-index-header {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-index-title {
+  padding-bottom: 20px;
+}
+
+.user-index-title h1 {
+  letter-spacing: -1.85px;
+  font-size: 37.5px;
+  line-height: 48px;
+  font-weight: 600;
+  color: $darker-gray;
+}
+
+.user-index-header-buttons {
+  padding-bottom: 20px;
+  display: flex;
+
+}
+
+.user-index-new-story {
+  height: 37px;
+  border: 1px solid $darker-green;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #03a87c;
+  margin-left: 8px;
+  font-size: 13.5px;
+  line-height: 20px;
+  box-sizing: border-box;
+}
+
+.user-index-new-story:hover {
+  color: $darker-green
+}
+
+.user-index-nav-box {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+// .user-index-nav {
+//   border-bottom: 1px solid rgba(0,0,0,.1);
+// }
+
+.user-index-nav ul {
+  margin-bottom: -1px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.user-index-nav li {
+  padding-bottom: 8px;
+  margin-right: 20px;
+  // line-height: 40px;
+  font-size: 13px;
+  color: $mid-gray
+}
+
+.user-index-tab {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.54);
+  padding-bottom: 11px;
+  color: $darker-gray;
+}

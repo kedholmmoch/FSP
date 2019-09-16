@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import {
   Redirect,
   Route,
-  withRouter,
-  Link,
-  Switch
+  withRouter
 } from 'react-router-dom';
 
 

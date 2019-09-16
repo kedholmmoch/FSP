@@ -19,15 +19,28 @@ class Api::EssaysController < ApplicationController
   end
 
   def index
+    
     return_function = Essay.includes(:author).all
 
     if params[:filter]
-      return_function = Essay.includes(:author).all_published if params[:filter] == "published"
-      return_function = Essay.includes(:author).all_featured if params[:filter] == "featured"
-      return_function = Essay.includes(:author).all_unpublished if params[:filter] == false
+      if params[:user_id]
+        curr_user_id = params[:user_id]
+        return_function = Essay.includes(:author)
+          .user_published(curr_user_id) if params[:filter] == "published"
+        return_function = Essay.includes(:author)
+          .user_unpublished(curr_user_id) if params[:filter] == "unpublished"
+      else
+        return_function = Essay.includes(:author).all_published if params[:filter] == "published"
+        return_function = Essay.includes(:author).all_featured if params[:filter] == "featured"
+      end
+    else
+      if params[:user_id]
+        curr_user_id = params[:user_id]
+        return_function = Essay.includes(:author).user_essays(curr_user_id)
+      end
     end
 
-    @essays = params[:filter] ? return_function : Essay.all
+    @essays = (params[:filter] || params[:user_id]) ? return_function : Essay.all
 
     render :index
   end

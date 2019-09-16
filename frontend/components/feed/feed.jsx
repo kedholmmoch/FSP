@@ -33,7 +33,6 @@ class Feed extends React.Component {
 						<div className="feed-lower-content">
 							<FeedScroll essays={essays}/>
 							<FeedSidebar essays={essays}/>
-							{/* <div className="feed-sidebar">Feed Sidebar!</div> */}
 						</div>					
 					</div>
 				)}
