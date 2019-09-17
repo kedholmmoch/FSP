@@ -44,8 +44,6 @@ User.create(
     profile_blurb: "Arpinate by birth, Roman in all that matters. I write on politics, law, philosophy, language, and morality. Savior of the Republic."
 )
 
-=end 
-
 
 ##  Up until here has been seeded on my computer + onto my Heroku -- thus the commenting out
 
@@ -410,4 +408,59 @@ ActiveRecord::Base.transaction do
       (Originally published in 1869 in 'The Innocents Abroad')"
   )
 
+end
+
+=end
+
+ActiveRecord::Base.transaction do
+
+  Essay.find_by(title: 'Transnational America').publish
+  Essay.find_by(title: 'Transnational America').feature
+
+  Essay.find_by(title: "The Origin of Love").publish
+  Essay.find_by(title: "The Origin of Love").feature
+
+  Essay.find_by(title: "Crowds, Spectacles, and Other Reasons You Should Just Stay At Home").publish
+  ##  Essay.find_by(title: "The Origin of Love").feature
+
+  Essay.find_by(title: "Good Readers and Good Writers").publish
+  Essay.find_by(title: "Good Readers and Good Writers").feature
+
+  Essay.find_by(title: "On Saving Time").publish
+  Essay.find_by(title: "On Saving Time").feature
+
+  Essay.find_by(title: "On Groundless Fears").publish
+  ##  Essay.find_by(title: "On Groundless Fears").feature
+
+  Essay.find_by(title: "The Innocents Abroad").publish
+  Essay.find_by(title: "The Innocents Abroad").feature
+
+  Essay.find_by(title: "Advice to Youth").publish
+  ##  Essay.find_by(title: "Advice to Youth").feature
+
+  Essay.create(
+    title: "How People Perceive Color Around the World",
+    user_id: User.find_by(username: "UserDemo").id,
+    summary: "We don't all know the same Roy G. Biv",
+    image_url: "https://cdn-images-1.medium.com/max/400/1*FNhjBpWfLUFTBLfTm3XbWQ.jpeg",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  )
+
+  Essay.find_by(title: "How People Perceive Color Around the World").publish
+  
+  Essay.create(
+    title: "Pain Over Pleasure? Following Cicero's Advice",
+    user_id: User.find_by(username: "UserDemo").id,
+    summary: "An ancient Roman author has something to say about the blind pursuit of happiness",
+    image_url: "",
+    body: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
+  )
+
+  Essay.create(
+    title: "Draft One",
+    user_id: User.find_by(username: "UserDemo").id,
+    summary: "",
+    image_url: "",
+    body: "(This is just a draft; I'm not sure exactly what I want to say about this issue yet.)"
+  )
 end
