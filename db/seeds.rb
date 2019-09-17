@@ -433,8 +433,6 @@ ActiveRecord::Base.transaction do
   )
 end
 
-=end
-
 ActiveRecord::Base.transaction do
 
   seed_1 = Essay.find_by(title: 'Transnational America')
@@ -509,4 +507,15 @@ ActiveRecord::Base.transaction do
     featured: true
   )
   
+end
+
+=end
+
+## Up to this point is current in my database and on Heroku
+
+ActiveRecord::Base.transaction do
+
+  nab = Essay.find_by(title: "Good Readers and Good Writers")
+  nab.image_url = "https://cdn-images-1.medium.com/fit/c/152/156/0*F2KoTRu8rUDJUmUI."
+
 end
