@@ -408,47 +408,7 @@ ActiveRecord::Base.transaction do
       (Originally published in 1869 in 'The Innocents Abroad')"
   )
 
-end
-
-=end
-
-ActiveRecord::Base.transaction do
-
-  Essay.find_by(title: 'Transnational America').publish
-  Essay.find_by(title: 'Transnational America').feature
-
-  Essay.find_by(title: "The Origin of Love").publish
-  Essay.find_by(title: "The Origin of Love").feature
-
-  Essay.find_by(title: "Crowds, Spectacles, and Other Reasons You Should Just Stay At Home").publish
-  ##  Essay.find_by(title: "The Origin of Love").feature
-
-  Essay.find_by(title: "Good Readers and Good Writers").publish
-  Essay.find_by(title: "Good Readers and Good Writers").feature
-
-  Essay.find_by(title: "On Saving Time").publish
-  Essay.find_by(title: "On Saving Time").feature
-
-  Essay.find_by(title: "On Groundless Fears").publish
-  ##  Essay.find_by(title: "On Groundless Fears").feature
-
-  Essay.find_by(title: "The Innocents Abroad").publish
-  Essay.find_by(title: "The Innocents Abroad").feature
-
-  Essay.find_by(title: "Advice to Youth").publish
-  ##  Essay.find_by(title: "Advice to Youth").feature
-
-  Essay.create(
-    title: "How People Perceive Color Around the World",
-    user_id: User.find_by(username: "UserDemo").id,
-    summary: "We don't all know the same Roy G. Biv",
-    image_url: "https://cdn-images-1.medium.com/max/400/1*FNhjBpWfLUFTBLfTm3XbWQ.jpeg",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  )
-
-  Essay.find_by(title: "How People Perceive Color Around the World").publish
-  
-  Essay.create(
+   Essay.create(
     title: "Pain Over Pleasure? Following Cicero's Advice",
     user_id: User.find_by(username: "UserDemo").id,
     summary: "An ancient Roman author has something to say about the blind pursuit of happiness",
@@ -463,4 +423,90 @@ ActiveRecord::Base.transaction do
     image_url: "",
     body: "(This is just a draft; I'm not sure exactly what I want to say about this issue yet.)"
   )
+
+    Essay.create(
+    title: "How People Perceive Color Around the World",
+    user_id: User.find_by(username: "UserDemo").id,
+    summary: "We don't all know the same Roy G. Biv",
+    image_url: "https://cdn-images-1.medium.com/max/400/1*FNhjBpWfLUFTBLfTm3XbWQ.jpeg",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  )
+end
+
+=end
+
+ActiveRecord::Base.transaction do
+
+  seed_1 = Essay.find_by(title: 'Transnational America')
+  seed_1.update(
+    published: true,
+    published_at: Time.now,
+    featured: true
+  )
+
+  ##  Essay.find_by(title: 'Transnational America').feature
+
+  seed_2 = Essay.find_by(title: "The Origin of Love")
+  seed_2.update(
+    published: true,
+    published_at: Time.now,
+    featured: true
+  )
+  
+  ##  Essay.find_by(title: "The Origin of Love").feature
+
+  seed_3 = Essay.find_by(title: "Crowds, Spectacles, and Other Reasons You Should Just Stay At Home")
+  seed_3.update( 
+    published: true,
+    published_at: Time.now,
+  )
+  ##  Essay.find_by(title: "The Origin of Love").feature
+
+  seed_4 = Essay.find_by(title: "Good Readers and Good Writers")
+  seed_4.update(
+    published: true,
+    published_at: Time.now,
+    featured: true
+  )
+  
+  ##  Essay.find_by(title: "Good Readers and Good Writers").feature
+
+  seed_5 = Essay.find_by(title: "On Saving Time")
+  seed_5.update(
+    published: true,
+    published_at: Time.now,
+    featured: true
+  )
+  ##  Essay.find_by(title: "On Saving Time").feature
+
+  seed_6 = Essay.find_by(title: "On Groundless Fears")
+  seed_6.update(
+    published: true,
+    published_at: Time.now
+  )
+  ##  Essay.find_by(title: "On Groundless Fears").feature
+
+  seed_7 = Essay.find_by(title: "The Innocents Abroad")
+  seed_7.update(
+    published: true,
+    published_at: Time.now,
+    featured: true
+  )
+
+  ##  Essay.find_by(title: "The Innocents Abroad").feature
+
+  seed_8 = Essay.find_by(title: "Advice to Youth")
+  seed_8.update(
+    published: true,
+    published_at: Time.now
+  )
+  ##  Essay.find_by(title: "Advice to Youth").feature
+
+  seed_9 = Essay.find_by(title: "How People Perceive Color Around the World")
+  seed_9.update(
+    published: true,
+    published_at: Time.now,
+    featured: true
+  )
+  
 end
