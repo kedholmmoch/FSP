@@ -49,17 +49,16 @@ $darker-green: rgb(8, 134, 101);
 }
 
 .user-index-title h1 {
-  letter-spacing: -1.85px;
+  letter-spacing: -2.75px;
   font-size: 37.5px;
   line-height: 48px;
   font-weight: 600;
-  color: $darker-gray;
+  color: rgba(0,0,0,.9)
 }
 
 .user-index-header-buttons {
   padding-bottom: 20px;
   display: flex;
-
 }
 
 .user-index-new-story {
@@ -99,8 +98,12 @@ $darker-green: rgb(8, 134, 101);
 .user-index-nav li {
   padding-bottom: 8px;
   margin-right: 20px;
-  font-size: 13px;
+  font-size: 13.5px;
   color: $mid-gray
+}
+
+.user-index-nav li:hover {
+  color: $darker-gray;
 }
 
 // Active link for drafts/published NavLink
@@ -117,13 +120,76 @@ $darker-green: rgb(8, 134, 101);
   width: 100%;
   display: flex;
   flex-direction: column;
+  text-align: left;
+}
 
+.user-essays-list-container li {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .user-essay-index-item-super {
+  word-wrap: break-word;
+}
 
+.user-essay-index-item-super h3 {
+  max-height: 56px;
+  letter-spacing: -4.75;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 800;
+  color: rgba(0,0,0,.9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-essay-index-preview-box {
+  margin-top: 4px;
+}
+
+.index-essay-preview {
+  max-height: 48px;
+  font-weight: 400px;
+  font-size: 16px;
+  line-height: 24px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: $mid-gray;
+  letter-spacing: -.2px;
 }
 
 .user-essay-index-item-sub {
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 8px;
+  font-weight: 400;
+  color: $mid-gray;
+}
+
+.user-essay-edit-count {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.user-essay-index-item-options {
+  color: rgba(0,0,0,.46);
+  height: 21px;
+  width: 21px;
+  font-size: 12px;
+  vertical-align: center;
+  line-height: 20px;
+  margin-left: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 100;
+}
+
+.user-essay-index-item-options button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }

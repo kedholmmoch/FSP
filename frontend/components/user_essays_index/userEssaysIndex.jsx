@@ -39,14 +39,17 @@ class UserEssaysIndex extends React.Component {
       return (
         <li key={`user${currentUser.id}-essay${idx}`}>
           <div className="user-essay-index-item-super">
-            <h3>{essay.title}</h3>
-            <div>
-              <p>{essay.preview}</p>
+            <h3><Link to={`/essays/${essay.id}/edit`}>
+              {essay.title}</Link></h3>
+            <div className="user-essay-index-preview-box">
+              <p className="index-essay-preview">
+                <Link to={`/essays/${essay.id}/edit`}>{essay.preview}</Link>
+              </p>
             </div>
           </div>
           <div className="user-essay-index-item-sub">
             <div className="user-essay-index-item-info">
-              <span> Last edited {lastEdited} {
+              <span className="user-essay-edit-count"> Last edited {lastEdited} {
                 (wordCount === 0) ? <span></span> : 
                   <span>
                     &nbsp; &#183; &nbsp;
@@ -56,7 +59,7 @@ class UserEssaysIndex extends React.Component {
               </span>
             </div> 
             <div className="user-essay-index-item-options">
-
+              <button><i className="fas fa-chevron-down"></i></button>
             </div>
           </div>
         </li>

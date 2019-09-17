@@ -11,6 +11,16 @@ class FeedSidebar extends React.Component {
 
   render() {
 
+    // Need to change to published_at
+
+    // function compareUpdated(essayA, essayB) {
+    //   let dateA = Date.parse(essayA.updated_at_string);
+    //   let dateB = Date.parse(essayB.updated_at_string);
+    //   return dateB - dateA;
+    // }
+
+    // const recents = this.props.essays.sort(compareUpdated).take(3).map
+
     const recents = this.props.essays.slice(0, 3).map((essay, idx) => {
       const datetime = moment(essay["published_at"]).format("MMM Do");
       const minutesToRead = essay["minutes_to_read"];
