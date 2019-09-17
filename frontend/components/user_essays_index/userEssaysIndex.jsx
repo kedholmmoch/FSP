@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 class UserEssaysIndex extends React.Component {
   constructor(props) {
@@ -19,9 +20,49 @@ class UserEssaysIndex extends React.Component {
 
   render() {
 
-    const { currentUser, essays, pageFilter } = this.props;
+    const { currentUser, essays } = this.props;
 
-    let essaysList;
+    function compareUpdated(essayA, essayB) {
+      let dateA = Date.parse(essayA.updated_at_string);
+      let dateB = Date.parse(essayB.updated_at_string);
+      return dateB - dateA;
+    }
+
+    let sortedEssays = essays.sort(compareUpdated)
+
+    let essaysList = sortedEssays.map((essay, idx) => {
+      
+      let lastEdited = moment(essay["updated_at"]).fromNow();
+      let minutesToRead = essay["minutes_to_read"];
+      let wordCount = essay["word_count"];
+
+      return (
+        <li key={`user${currentUser.id}-essay${idx}`}>
+          <div className="user-essay-index-item-super">
+            <h3>{essay.title}</h3>
+            <div>
+              <p>{essay.preview}</p>
+            </div>
+          </div>
+          <div className="user-essay-index-item-sub">
+            <div className="user-essay-index-item-info">
+              <span> Last edited {lastEdited} {
+                (wordCount === 0) ? <span></span> : 
+                  <span>
+                    &nbsp; &#183; &nbsp;
+                    {minutesToRead} minute read ({wordCount} words) so far
+                  </span>
+                }
+              </span>
+            </div> 
+            <div className="user-essay-index-item-options">
+
+            </div>
+          </div>
+        </li>
+        )
+      }
+    );
 
     return (
       <div className="user-essay-index">
@@ -52,10 +93,10 @@ class UserEssaysIndex extends React.Component {
               </ul>
             </nav>
           </div>
-          <div>
-            <h2>This is the Essays List!</h2>
+          <div className="user-essays-list-container">
+            <ul>
             {essaysList}
-            <h2>This is the end of the Essays List!</h2>
+            </ul>
           </div>
         </section>
       </div>

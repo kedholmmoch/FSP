@@ -34,6 +34,8 @@ $darker-green: rgb(8, 134, 101);
   justify-content: flex-start;
 }
 
+// Header
+
 .user-index-header {
   display: flex;
   flex-direction: row;
@@ -76,6 +78,9 @@ $darker-green: rgb(8, 134, 101);
   color: $darker-green
 }
 
+
+// User Essay Nav Bar (Drafts/Published)
+
 .user-index-nav-box {
   height: 30px;
   display: flex;
@@ -83,10 +88,6 @@ $darker-green: rgb(8, 134, 101);
   justify-content: flex-start;
   border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
-// .user-index-nav {
-//   border-bottom: 1px solid rgba(0,0,0,.1);
-// }
 
 .user-index-nav ul {
   margin-bottom: -1px;
@@ -98,13 +99,31 @@ $darker-green: rgb(8, 134, 101);
 .user-index-nav li {
   padding-bottom: 8px;
   margin-right: 20px;
-  // line-height: 40px;
   font-size: 13px;
   color: $mid-gray
 }
 
+// Active link for drafts/published NavLink
 .user-index-tab {
   border-bottom: 1px solid rgba(0, 0, 0, 0.54);
   padding-bottom: 11px;
   color: $darker-gray;
+}
+
+
+// user Essay Index display
+
+.user-essays-list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.user-essay-index-item-super {
+
+}
+
+.user-essay-index-item-sub {
+  
 }

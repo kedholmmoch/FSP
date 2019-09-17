@@ -25,10 +25,17 @@ class Essay < ApplicationRecord
   primary_key: :id,
   foreign_key: :user_id
 
-
+  def word_count
+    self.body.split(" ").length
+  end
+  
   def minutes_to_read
-    word_count = self.body.split(" ").length
-    return (word_count / 200) + 1
+    return (self.word_count / 200) + 1
+  end
+
+  def text_preview
+    preview = self.body[0..140] + "..."
+    return preview
   end
 
   def publish
@@ -54,20 +61,21 @@ class Essay < ApplicationRecord
   end
 
   def self.all_published
-    Essay.where(published: true).order(published_at: :desc)
-  end
+    Essay.where(published: true)   ##.order(published_at: :desc)
+  end                               ## realized I am losing this ordering once the info gets passed into JSON...
 
   def self.user_essays(user_id)
-    Essay.where(user_id: user_id).order(updated_at: :desc)
+    Essay.where(user_id: user_id)   ##.order(updated_at: :desc)
   end
 
   def self.user_published(user_id)
-    Essay.where(user_id: user_id, published: true).order(published_at: :desc)
+    Essay.where(user_id: user_id, published: true)   ##.order(published_at: :desc)
   end
 
   def self.user_unpublished(user_id)
-    Essay.where(user_id: user_id, published: false).order(updated_at: :desc)
+    Essay.where(user_id: user_id, published: false)   ##.order(updated_at: :asc)
   end
+
 
 
   ## For testing Feed state load and ajax requests
