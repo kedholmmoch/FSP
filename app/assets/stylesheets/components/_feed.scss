@@ -440,6 +440,7 @@ $darker-gray: rgba(0,0,0,.84);
 
 .scroll-item-img {
   width: 152px;
+  min-width: 152px;
   max-height: 100%;
   object-fit: cover;
   float: right;
