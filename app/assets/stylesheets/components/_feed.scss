@@ -454,7 +454,8 @@ $darker-gray: rgba(0,0,0,.84);
   height: inherit;
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
+  justify-content: space-between;
+  // flex: 0 0 auto;
   // position: fixed;
   // bottom: 0;
   // right: 0;
@@ -470,6 +471,7 @@ $darker-gray: rgba(0,0,0,.84);
 
 .feed-sidebar {
   width: 100%;
+  flex: 1 0 auto;
 }
 
 .recent-essays {
@@ -576,13 +578,14 @@ $darker-gray: rgba(0,0,0,.84);
 
 // }
 
-.feed-sidebar-container footer {
+.feed-sidebar-footer {
   padding-right: 20px;
   padding-left: 20px;
   margin: 0 auto;
   margin-top: 30px;
   margin-left: 24px;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .feed-footer-text {

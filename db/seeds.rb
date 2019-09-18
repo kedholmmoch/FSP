@@ -523,5 +523,11 @@ seed_9.update(
 ## Up to this point is current in my database and on Heroku
 
 ActiveRecord::Base.transaction do
- 
+
+  user_1 = User.find_by(username: 'Lolitterateur')
+  user_1.update(
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/8/87/Vladimir_Nabokov_1973.jpg"
+  )
+
+  
 end

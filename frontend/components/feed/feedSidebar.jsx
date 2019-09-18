@@ -95,7 +95,7 @@ class FeedSidebar extends React.Component {
             <div className="recent-essays">{recentlyPublished()}</div>
             {/* <div className="popular-essays">{popularEssays}</div> */}
           </div>
-          <footer>
+          <footer className="feed-sidebar-footer">
             <div className="feed-footer-text">
               <ul>
                 {footerLinks}
