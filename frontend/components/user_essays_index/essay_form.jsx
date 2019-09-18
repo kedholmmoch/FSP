@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class EssayForm extends React.Component {
   constructor(props){
@@ -45,8 +45,8 @@ class EssayForm extends React.Component {
     e.preventDefault();
     const currentUser = this.props.currentUser;
     const essay = Object.assign({}, this.state.essay);
-    this.props.action(essay);
-    this.props.history.push(`/users/${currentUser.id}/essays/drafts`)
+    this.props.action(essay)
+      .then(() => this.props.history.push(`/users/${currentUser.id}/essays/drafts`));
   }
 
   render(){
@@ -54,6 +54,8 @@ class EssayForm extends React.Component {
     if (!this.state.essay) {
       return null;
     }
+
+    const {currentUser} = this.props;
 
     console.log("PROPS")
     console.log(this.props.essay);
@@ -67,12 +69,18 @@ class EssayForm extends React.Component {
             <div className="essay-form-inner">
               { (this.state.isFetching) ? null : (
               <form className="essay-form-form" onSubmit={this.handleSubmit}>
+                  {/* <Link className="form-process-button" 
+                    to={`/users/${currentUser.id}/essays/drafts`}
+                    onClick={this.handleSubmit}>
+                    {this.props.formType}</Link> */}
                 <input className="form-process-button"
                   type="submit" value={`${this.props.formType}`}
                 />
-                <label className="essay-form-title">
-                  <input type="text" placeholder="Title" value={this.state.essay.title} onChange={this.handleChange('title')}/>
-                </label>
+                <div className="title-sizing-div">
+                  <label className="essay-form-title">
+                    <textarea placeholder="Title" value={this.state.essay.title} onChange={this.handleChange('title')}/>
+                  </label>
+                </div>
                 <label className="essay-form-body">
                   <textarea placeholder="&nbsp; Tell your story" value={this.state.essay.body || ''} onChange={this.handleChange('body')}/>
                 </label>

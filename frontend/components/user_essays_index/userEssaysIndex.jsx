@@ -20,7 +20,7 @@ class UserEssaysIndex extends React.Component {
       this.setState({ 
         essays: this.props.essays,
         isFetching: false })
-    })
+      })
   }
 
   render() {

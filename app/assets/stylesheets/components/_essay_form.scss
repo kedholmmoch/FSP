@@ -31,7 +31,7 @@
   padding-right: 20px;
   width: 100%;
   margin: 0 auto;
-  box-sizing: border-box;
+  // box-sizing: border-box;
   word-break: break-word;
 }
 
@@ -58,20 +58,38 @@
   // padding-top: 16px;
   color: rgba(0,0,0,.84);
   vertical-align: text-top;
+  max-width: 700px;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
-.essay-form-title input {
+.essay-form-title textarea {
+
   width: 100%;
+  margin: 8px;
   font-family: 'Lora', serif;
-  font-weight: 700px;
-  font-size: 41.5px;
-  line-height: 1.04;
+  color: rgba(0,0,0,.84);
   padding: 5px;
   padding-top: 16px;
-  color: rgba(0,0,0,.84);
-  margin: 8px;
-  box-sizing: border-box;
-  resize: none;
+  max-width: 700px;
+  font-weight: 500;
+  font-size: 41px;
+
+  // line-height: 43px;
+  // line-height: 1.04;
+  // box-sizing: border-box;
+  // resize: none;
+
+  max-height: 130px;
+  line-height: 45px;
+  min-height: 50px;
+  max-height: 220px;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .essay-form-body {
@@ -88,7 +106,7 @@
   font-family: 'Lora', serif;
   margin: 8px;
   margin-top: 12px;
-  font-size: 18.5px;
+  font-size: 19px;
   font-weight: 400;
   line-height: 1.58;
   padding: 5px;
@@ -117,4 +135,8 @@
 .form-process-button:hover {
   color: rgb(8, 134, 101);
   border-color: rgb(8, 134, 101);
+}
+
+.title-sizing-div {
+
 }

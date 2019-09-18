@@ -6,7 +6,6 @@ import { fetchEssay } from '../../actions/essay_actions';
 const mapStateToProps = (state, ownProps) => {
 
   let essayId = ownProps.match.params.essayId;
-  // console.log(essayId);
   let essay = state.entities.essays[essayId];
 
   return {
