@@ -23,6 +23,9 @@ import EditEssayFormContainer
     from './user_essays_index/edit_essay_form_container';
 import EssayShowContainer from './essay_show/essay_show_container';
 
+import CreateEssayFormContainer from './user_essays_index/create_essay_form_container';
+import UpdateEssayFormContainer from './user_essays_index/update_essay_form_container';
+
 
 // import SignInFormContainer from './session/SignInFormContainer';
 // import SignUpFormContainer from './session/SignUpFormContainer';
@@ -39,10 +42,10 @@ const App = () => (
         component={UserPublishedContainer} />
       <Route exact path="/users/:userId"                        // User profile
         component={UserProfileContainer} />
-      <ProtectedRoute exact path="/essays/:essayId/edit"     // Edit Essay Form
-        component={EditEssayFormContainer} />
       <ProtectedRoute exact path="/essays/new"                // New Essay Form
-        component={NewEssayFormContainer} />             
+        component={CreateEssayFormContainer} />  
+      <ProtectedRoute exact path="/essays/:essayId/edit"     // Edit Essay Form
+        component={UpdateEssayFormContainer} />           
       <Route exact path="/essays/:essayId"                   // Essay show page
         component={EssayShowContainer}/>
       <Route path="/" component={FeedContainer} />       { /* Home/Feed Page*/ }

@@ -19,7 +19,7 @@ class Api::EssaysController < ApplicationController
   end
 
   def index
-    
+
     return_function = Essay.includes(:author).all
 
     if params[:filter]
@@ -57,6 +57,8 @@ class Api::EssaysController < ApplicationController
 
   def update
     @essay = Essay.find(params[:id])
+
+    ## @essay.id = params[:id]
 
     if @essay.update(essay_params)
       render :show
