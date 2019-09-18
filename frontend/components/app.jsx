@@ -16,19 +16,12 @@ import FeedContainer from './feed/feedContainer';
 import UserDraftsContainer
     from './user_essays_index/userDraftsContainer';
 import UserPublishedContainer from './user_essays_index/userPublishedContainer';
-import UserProfileContainer from './userProfile/userProfileContainer';
-
-import EssayShowContainer from './essay_show/essay_show_container';
 
 import CreateEssayFormContainer from './user_essays_index/create_essay_form_container';
 import UpdateEssayFormContainer from './user_essays_index/update_essay_form_container';
 
-
-// import NewEssayFormContainer 
-//     from './user_essays_index/new_essay_form_container';
-// import EditEssayFormContainer 
-//     from './user_essays_index/edit_essay_form_container';
-
+import EssayShowContainer from './essay_show/essay_show_container';
+import UserProfileContainer from './userProfile/userProfileContainer';
 
 const App = () => (
   <div className="page-content">

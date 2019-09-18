@@ -61,19 +61,27 @@ class EssayForm extends React.Component {
     console.log(this.state.essay);
 
     return(
-      <div>
-        { (this.state.isFetching) ? null : (
-        <form onSubmit={this.handleSubmit}>
-          <label>Title
-            <input type="text" value={this.state.essay.title} onChange={this.handleChange('title')}/>
-          </label>
-          <label>Body
-            <textarea value={this.state.essay.body || ''} onChange={this.handleChange('body')}/>
-          </label>
-          <input type="submit" value="Submit"/>
-        </form>
-        )}
-      </div>
+      <article className="essay-form-box">
+        <div className="post-article-content">
+          <div className="essay-form-content">
+            <div className="essay-form-inner">
+              { (this.state.isFetching) ? null : (
+              <form className="essay-form-form" onSubmit={this.handleSubmit}>
+                <input className="form-process-button"
+                  type="submit" value={`${this.props.formType}`}
+                />
+                <label className="essay-form-title">
+                  <input type="text" placeholder="Title" value={this.state.essay.title} onChange={this.handleChange('title')}/>
+                </label>
+                <label className="essay-form-body">
+                  <textarea placeholder="&nbsp; Tell your story" value={this.state.essay.body || ''} onChange={this.handleChange('body')}/>
+                </label>
+              </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </article>
     )
   }
 }

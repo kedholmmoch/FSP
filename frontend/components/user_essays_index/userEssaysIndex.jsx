@@ -8,6 +8,7 @@ class UserEssaysIndex extends React.Component {
 
     this.state = {
       isFetching: true,
+      essays: this.props.essays,
     }
   }
 
@@ -15,12 +16,21 @@ class UserEssaysIndex extends React.Component {
     this.props.fetchEssays({
       user_id: this.props.currentUser.id,
       filter: this.props.pageFilter
-    }).then(() => this.setState({ isFetching: false }))
+    }).then(() => {
+      this.setState({ 
+        essays: this.props.essays,
+        isFetching: false })
+    })
   }
 
   render() {
 
-    const { currentUser, essays } = this.props;
+    if (this.state.isFetching) {
+      return null;
+    }
+
+    const { currentUser } = this.props;
+    let { essays } = this.state;
 
     function compareUpdated(essayA, essayB) {
       let dateA = Date.parse(essayA.updated_at_string);

@@ -1,0 +1,120 @@
+.essay-form-box {
+  min-height: calc(100vh-65px);
+  position: relative;
+}
+
+.essay-form-box textarea {
+  resize: none;
+}
+
+.post-article-content {
+  margin-bottom: 50px;
+  margin-top: 3px;
+  outline: 0;
+  word-break: break-word;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.essay-form-content {
+  margin-top: 20px;
+  padding-top: 0px;
+  clear: both;
+  padding-bottom: 5px;
+  font-family: 'Lora', serif;
+}
+
+.essay-form-inner {
+  max-width: 740px;
+  min-width: 740px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.essay-form-form {
+  padding-top: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+}
+
+.essay-form-form[placeholder] {
+  color: rgba(0,0,0,.54);
+  font-size: 44px;
+}
+
+.essay-form-title {
+  width: 100%;
+  font-family: 'Lora', serif;
+  font-weight: 700px;
+  font-size: 40px;
+  line-height: 1.58;
+  // padding-top: 16px;
+  color: rgba(0,0,0,.84);
+  vertical-align: text-top;
+}
+
+.essay-form-title input {
+  width: 100%;
+  font-family: 'Lora', serif;
+  font-weight: 700px;
+  font-size: 41.5px;
+  line-height: 1.04;
+  padding: 5px;
+  padding-top: 16px;
+  color: rgba(0,0,0,.84);
+  margin: 8px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.essay-form-body {
+  width: 100%;
+  font-family: 'Lora', serif;
+  margin-top: 10px;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.58;
+}
+
+.essay-form-body textarea {
+  width: 100%;
+  font-family: 'Lora', serif;
+  margin: 8px;
+  margin-top: 12px;
+  font-size: 18.5px;
+  font-weight: 400;
+  line-height: 1.58;
+  padding: 5px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.form-process-button {
+  height: 38px;
+  width: 115px;
+  border: 1px solid rgba(0,0,0,0.15);
+  padding: 0 16px;
+  border-radius: 4px;
+  color: #03a87c;
+  border-color: #03a87c;
+  font-size: 13px;
+  text-align: center;
+  vertical-align: center;
+  position: absolute;
+  // left: 700px;
+  top: 55px;
+  right: -141px;
+  z-index: 1;
+}
+
+.form-process-button:hover {
+  color: rgb(8, 134, 101);
+  border-color: rgb(8, 134, 101);
+}
