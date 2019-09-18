@@ -11,8 +11,10 @@ const mapStateToProps = (state, ownProps) => {
   let essay = state.entities.essays[essayId]|| defaultEssay;
 
   return {
+    currentUser: state.entities.users[state.session.id],
     essay: essay,
-    formType: 'Save Essay',
+    formType: 'Update essay',
+    isFetching: true,
   };
 };
 

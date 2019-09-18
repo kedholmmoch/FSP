@@ -39,11 +39,12 @@ class UserEssaysIndex extends React.Component {
       return (
         <li key={`user${currentUser.id}-essay${idx}`}>
           <div className="user-essay-index-item-super">
-            <h3><Link to={`/essays/${essay.id}/edit`}>
+            <h3><Link to={`/users/${currentUser.id}/essays/${essay.id}/edit`}>
               {essay.title}</Link></h3>
             <div className="user-essay-index-preview-box">
               <p className="index-essay-preview">
-                <Link to={`/essays/${essay.id}/edit`}>{essay.preview}</Link>
+                <Link to={`/users/${currentUser.id}/essays/${essay.id}/edit`}>
+                  {essay.preview}</Link>
               </p>
             </div>
           </div>
@@ -78,7 +79,7 @@ class UserEssaysIndex extends React.Component {
             <div className="user-index-header-buttons">
               {/* <div> Import a story </div>*/}
               <div className="user-index-new-story">
-                <Link to="/essays/new">Write a story</Link>
+                <Link to={`/users/${currentUser.id}/essays/new`}>Write a story</Link>
               </div>
             </div>
           </div>

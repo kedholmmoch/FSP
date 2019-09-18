@@ -6,8 +6,10 @@ import { postEssay } from '../../actions/essay_actions';
 const mapStateToProps = (state, ownProps) => {
 
   return {
+    currentUser: state.entities.users[state.session.id],
     essay: { title: '', body: ''},
-    formType: 'Save Essay',
+    formType: 'Save essay',
+    isFetching: false,
   };
 };
 

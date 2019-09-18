@@ -1,23 +1,25 @@
-import { connect } from 'react-redux';
+// OUT OF DATE -- REPLACED WITH NEW FILE
 
-import EssayEditorForm from './essay_editor_form';
-import { postEssay } from '../../actions/essay_actions'
+// import { connect } from 'react-redux';
 
-const mapStateToProps = state => {
+// import EssayEditorForm from './essay_editor_form';
+// import { postEssay } from '../../actions/essay_actions'
 
-  return {
-    essay: {
-      title: '',
-      body: ''},
-    formType: 'New Essay'
-  };
-};
+// const mapStateToProps = state => {
 
-const mapDispatchToProps = dispatch => {
+//   return {
+//     essay: {
+//       title: '',
+//       body: ''},
+//     formType: 'New Essay'
+//   };
+// };
 
-  return {
-    processForm: (essay) => dispatch(postEssay(essay)),
-  };
-};
+// const mapDispatchToProps = dispatch => {
 
-export default connect(mapStateToProps, mapDispatchToProps)(EssayEditorForm);
+//   return {
+//     processForm: (essay) => dispatch(postEssay(essay)),
+//   };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(EssayEditorForm);

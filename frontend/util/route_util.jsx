@@ -17,17 +17,29 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   />
 );
 
-const Protected = ({ component: Component, path, loggedIn, exact }) => (
+const Protected = ({ component: Component, path, currentUser, exact }) => {
+
+
+  return (
   <Route
     path={path}
     exact={exact}
     render={props => 
-      loggedIn ? <Component {...props}/> : <Redirect to="/"/>}
+      currentUser ? //  (
+        //  (currentUser.id === paramsUserId) ? (
+          <Component {...props}/> 
+            //  ) : (
+          //  <Redirect to="/" />
+        //  )) 
+      : <Redirect to="/"/>}
   />
-)
+)}
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  const currentUser = state.entities.users[state.session.id];
   return {
+    currentUser,
+    // paramsUserId: ownProps.match.params.userId,
     loggedIn: Boolean(state.session.id)
   };
 };

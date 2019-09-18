@@ -1,64 +1,67 @@
-import React from 'react';
-import { connect } from 'react-redux';
+//   OUT OF DATE -- REPLACED WITH NEW FILES!
 
-import EssayEditorForm from './essay_editor_form';
-import { updateEssay, fetchEssay } from '../../actions/essay_actions';
 
-const mapStateToProps = (state, ownProps) => {
+// import React from 'react';
+// import { connect } from 'react-redux';
 
-  console.log(ownProps.match.params.essayId);
+// import EssayEditorForm from './essay_editor_form';
+// import { updateEssay, fetchEssay } from '../../actions/essay_actions';
 
-  let essayId = ownProps.match.params.essayId;
+// const mapStateToProps = (state, ownProps) => {
 
-  console.log(state.entities);
+//   console.log(ownProps.match.params.essayId);
 
-  let essay = state.entities.essays[essayId];
+//   let essayId = ownProps.match.params.essayId;
 
-  return {
-    formType: 'Update Essay',
-    essay: essay,
-  };
-};
+//   console.log(state.entities);
 
-const mapDispatchToProps = dispatch => {
+//   let essay = state.entities.essays[essayId];
 
-  return {
-    processForm: (essay) => dispatch(updateEssay(essay)),
-    fetchEssay: (id) => dispatch(fetchEssay(id)),
-  };
-};
+//   return {
+//     formType: 'Update Essay',
+//     essay: essay,
+//   };
+// };
 
-// class EditEssayForm extends React.Component{
-//   constructor(props) {
-//     super(props);
+// const mapDispatchToProps = dispatch => {
 
-//     this.state = {
-//       isFetching: true
-//     }
-//   }
+//   return {
+//     processForm: (essay) => dispatch(updateEssay(essay)),
+//     fetchEssay: (id) => dispatch(fetchEssay(id)),
+//   };
+// };
 
-//   componentDidMount() {
-//     this.props.fetchEssay(this.props.match.params.essayId)
-//       .then(this.setState({ isFetching: false }));
-//   }
+// // class EditEssayForm extends React.Component{
+// //   constructor(props) {
+// //     super(props);
 
-//   render() {
+// //     this.state = {
+// //       isFetching: true
+// //     }
+// //   }
 
-//     const { essay, formType, processForm } = this.props;
-//     const { isFetching } = this.state;
+// //   componentDidMount() {
+// //     this.props.fetchEssay(this.props.match.params.essayId)
+// //       .then(this.setState({ isFetching: false }));
+// //   }
 
-//     return (
-//       <div>
-//         { (isFetching) ? (<span></span>) : (
-//           <EssayEditorForm
-//             essay={essay}
-//             formType={formType}
-//             processForm={processForm}
-//           />
-//         )}
-//       </div>
-//       )
-//     }
-//   }
+// //   render() {
+
+// //     const { essay, formType, processForm } = this.props;
+// //     const { isFetching } = this.state;
+
+// //     return (
+// //       <div>
+// //         { (isFetching) ? (<span></span>) : (
+// //           <EssayEditorForm
+// //             essay={essay}
+// //             formType={formType}
+// //             processForm={processForm}
+// //           />
+// //         )}
+// //       </div>
+// //       )
+// //     }
+// //   }
   
-export default connect(mapStateToProps, mapDispatchToProps)(EssayEditorForm);
+// export default connect(mapStateToProps, mapDispatchToProps)(EssayEditorForm);

@@ -9,22 +9,28 @@ class EssayForm extends React.Component {
         title: '',
         body: '',
       },
-      isFetching: true
+      isFetching: this.props.isFetching,
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    // if (this.props.currentUser.id !== this.props.match.params.userId) {
+    //   this.props.history.push('/');
+    // }
   }
 
   componentDidMount(){
-    this.props.fetchEssay(this.props.match.params.essayId)
-      .then(() => {
-        this.setState({
-          essay: this.props.essay,
-          isFetching: false,
-        });
-      }
-    )
+    if (this.props.formType === 'Update essay') {
+      this.props.fetchEssay(this.props.match.params.essayId)
+        .then(() => {
+          this.setState({
+            essay: this.props.essay,
+            isFetching: false,
+          });
+        }
+      )
+    }
   }
 
   handleChange(field) {
@@ -37,8 +43,10 @@ class EssayForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const currentUser = this.props.currentUser;
     const essay = Object.assign({}, this.state.essay);
     this.props.action(essay);
+    this.props.history.push(`/users/${currentUser.id}/essays/drafts`)
   }
 
   render(){

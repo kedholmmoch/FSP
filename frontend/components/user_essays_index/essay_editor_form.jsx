@@ -1,68 +1,66 @@
-import React from 'react';
-import {withRouter} from 'react-router-dom';
+// OUT OF DATE -- CREATED NEW FILES!!!
 
-class EssayEditorForm extends React.Component {
-  constructor(props) {
-    super(props);
+// import React from 'react';
+// import {withRouter} from 'react-router-dom';
 
-    this.state = {
-      essay: this.props.essay,
-      formType: this.props.formType,
-      isFetching: true
-    }
+// class EssayEditorForm extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-  }
+//     this.state = {
+//       essay: this.props.essay,
+//       formType: this.props.formType,
+//       isFetching: true
+//     }
 
-  componentDidMount() {
-    console.log("Is this working?")
-    this.props.fetchEssay(this.props.match.params.essayId)
-      .then(this.setState({ isFetching: false }));
-  }
+//     this.handleChange = this.handleChange.bind(this);
+//   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.essayId != this.props.match.params.essayId) {
-      console.log("Component did Update");
-      this.props.fetchEssay(this.props.match.params.essayId);
-    }
-  }
+//   componentDidMount() {
+//     console.log("Is this working?")
+//     this.props.fetchEssay(this.props.match.params.essayId)
+//       .then(this.setState({ isFetching: false }));
+//   }
 
-  handleChange(input) {
-    return (e) => {
-      this.setState({ essay: { [input]: e.target.value }});
-    } 
-  }
+//   componentDidUpdate(prevProps) {
+//     if (prevProps.match.params.essayId != this.props.match.params.essayId) {
+//       console.log("Component did Update");
+//       this.props.fetchEssay(this.props.match.params.essayId);
+//     }
+//   }
 
-  render() {
+//   handleChange(input) {
+//     return (e) => {
+//       this.setState({ essay: { [input]: e.target.value }});
+//     } 
+//   }
 
-    if (!this.props.essay) {
-      return null;
-    }
+//   render() {
 
-    console.log(this.props.essay);
-    console.log(this.state);
+//     if (!this.props.essay) {
+//       return null;
+//     }
 
-    return(
-      <div>
-        {/* { (this.state.essay) ? <div>Do you see me?</div> : ( */}
-        <div>
-        <span>Editor Essay Form</span>
-        <br/>
-        <form>
-          <label>Title
-            <input id="essay-form-title-input"
-              type="text" value={this.props.essay.title} onChange={this.handleChange('title')}/>
-          </label>
-          <label>Body
-            <input id="essay-form-body-input"
-              type="text" value={this.props.essay.body} onChange={this.handleChange('body')}/>
-          </label>
-        </form>
-        </div>
-        {/* )} */}
-      </div>
-    )
-  }
-}
+//     console.log(this.props.essay);
+//     console.log(this.state);
 
-export default withRouter(EssayEditorForm);
+//     return(
+//       <div >
+//         <div>
+//         <form>
+//           <label>Title
+//             <input id="essay-form-title-input"
+//               type="text" value={this.props.essay.title} onChange={this.handleChange('title')}/>
+//           </label>
+//           <label>Body
+//             <input id="essay-form-body-input"
+//               type="text" value={this.props.essay.body} onChange={this.handleChange('body')}/>
+//           </label>
+//         </form>
+//         </div>
+//       </div>
+//     )
+//   }
+// }
+
+// export default withRouter(EssayEditorForm);

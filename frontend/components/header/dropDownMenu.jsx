@@ -45,7 +45,7 @@ class DropDownMenu extends React.Component {
             <li className="dd-separator"></li>
             <li className="dd-link">
               <button className="dd-link-text" 
-                onClick={() => this.handleLinkClick('/essays/new')}>
+                onClick={() => this.handleLinkClick(`/users/${currentUser.id}/essays/new`)}>
                 New Essay </button></li>
             <li className="dd-link">
               <button className="dd-link-text"
