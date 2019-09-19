@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import UserEssaysIndex from './userEssaysIndex';
-import { fetchEssays } from '../../actions/essay_actions';
+import { fetchEssays, deleteEssay } from '../../actions/essay_actions';
 
 const mapStateToProps = state => {
 
@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => {
 
   return {
     fetchEssays: (filters) => dispatch(fetchEssays(filters)),
+    deleteEssay: id => dispatch(deleteEssay(id)),
   };
 };
 

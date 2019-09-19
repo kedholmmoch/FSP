@@ -10,6 +10,8 @@ class UserEssaysIndex extends React.Component {
       isFetching: true,
       essays: this.props.essays,
     }
+
+    // this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -19,9 +21,25 @@ class UserEssaysIndex extends React.Component {
     }).then(() => {
       this.setState({ 
         essays: this.props.essays,
-        isFetching: false })
+        isFetching: false 
+        })
       })
   }
+
+  handleDelete(id) {
+    this.setState({ isFetching: true });
+    this.props.deleteEssay(id)
+      .then(() => this.removeDeleted(id));
+  }
+
+  removeDeleted(id) {
+    let newEssays = this.state.essays.filter((essay) => {
+      return essay.id != id;
+    });
+
+    this.setState({ essays: newEssays, isFetching: false });
+  }
+
 
   render() {
 
@@ -37,6 +55,8 @@ class UserEssaysIndex extends React.Component {
       let dateB = Date.parse(essayB.updated_at_string);
       return dateB - dateA;
     }
+
+    console.log(essays);
 
     let sortedEssays = essays.sort(compareUpdated)
 
@@ -71,6 +91,11 @@ class UserEssaysIndex extends React.Component {
             </div> 
             <div className="user-essay-index-item-options">
               <button><i className="fas fa-chevron-down"></i></button>
+              <div>
+                <Link to={`/users/${currentUser.id}/essays/${essay.id}/edit`}>
+                  Edit draft</Link>
+                <button onClick={this.handleDelete.bind(this, essay.id)}>Delete draft</button>
+              </div>
             </div>
           </div>
         </li>
