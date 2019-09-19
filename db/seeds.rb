@@ -524,10 +524,11 @@ seed_9.update(
 
 ActiveRecord::Base.transaction do
 
+  ## already in local DB
   user_1 = User.find_by(username: 'Lolitterateur')
   user_1.update(
     image_url: "https://upload.wikimedia.org/wikipedia/commons/8/87/Vladimir_Nabokov_1973.jpg"
   )
 
-  
+
 end

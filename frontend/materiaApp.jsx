@@ -6,9 +6,11 @@ import Root from './components/root';
 
 //testing
 
-import * as EssayApiUtil from './util/essay_api_util';
+// import * as EssayApiUtil from './util/essay_api_util';
+// import * as UserApiUtil from './util/user_api_util';
 
-// import { updateEssay}
+import { fetchUser, fetchUsers } from './actions/user_actions';
+
 
 //testing end
 
@@ -38,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+
+  window.fetchUser = fetchUser;
+  window.fetchUsers = fetchUsers;
 
 
   // testing end

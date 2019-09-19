@@ -1,15 +1,17 @@
-import { 
-    RECEIVE_ESSAY_ERRORS
-} from '../actions/essay_actions';
+//   Got rid of this -- don't think it was necessary
 
-const essayErrorsReducer = (state = [], action) => {
-    Object.freeze(state);
-    switch (action.type) {
-        case RECEIVE_ESSAY_ERRORS:
-            return action.errors;
-        default:
-            return state;
-    }
-};
+// import { 
+//     RECEIVE_ESSAY_ERRORS
+// } from '../actions/essay_actions';
 
-export default essayErrorsReducer;
+// const essayErrorsReducer = (state = [], action) => {
+//     Object.freeze(state);
+//     switch (action.type) {
+//         case RECEIVE_ESSAY_ERRORS:
+//             return action.errors;
+//         default:
+//             return state;
+//     }
+// };
+
+// export default essayErrorsReducer;

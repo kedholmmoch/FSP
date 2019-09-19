@@ -21,43 +21,43 @@ const removeEssay = essay => ({
     essayId: essay.id,
 });
 
-const receiveEssayErrors = errors => ({
-    type: RECEIVE_ESSAY_ERRORS,
-    errors: errors,
-});
+// const receiveEssayErrors = errors => ({
+//     type: RECEIVE_ESSAY_ERRORS,
+//     errors: errors,
+// });
 
 
 export const fetchEssays = filters => dispatch => (
     EssayApiUtil.fetchEssays(filters)
-        .then(essays => dispatch(receiveEssays(essays)),
-            err => dispatch(receiveEssayErrors(err.responseJSON))
+        .then(essays => dispatch(receiveEssays(essays))
+            // err => dispatch(receiveEssayErrors(err.responseJSON))
     )
 );
 
 export const fetchEssay = id => dispatch => (
     EssayApiUtil.fetchEssay(id)
-        .then(essay => dispatch(receiveSingleEssay(essay)),
-            err => dispatch(receiveEssayErrors(err.responseJSON))
+        .then(essay => dispatch(receiveSingleEssay(essay))
+            // err => dispatch(receiveEssayErrors(err.responseJSON))
     )
 );
 
 export const postEssay = essay => dispatch => (
     EssayApiUtil.postEssay(essay)
-        .then(essay => dispatch(receiveSingleEssay(essay)),
-            err => dispatch(receiveEssayErrors(err.responseJSON))
+        .then(essay => dispatch(receiveSingleEssay(essay))
+            // err => dispatch(receiveEssayErrors(err.responseJSON))
     )
 );
 
 export const updateEssay = essay => dispatch => (
     EssayApiUtil.updateEssay(essay)
-        .then(essay => dispatch(receiveSingleEssay(essay)),
-            err => dispatch(receiveEssayErrors(err.responseJSON))
+        .then(essay => dispatch(receiveSingleEssay(essay))
+            // err => dispatch(receiveEssayErrors(err.responseJSON))
     )
 );
 
 export const deleteEssay = id => dispatch => (
     EssayApiUtil.deleteEssay(id)
-        .then(essay => dispatch(removeEssay(essay)),
-            err => dispatch(receiveEssayErrors(err.responseJSON))
+        .then(essay => dispatch(removeEssay(essay))
+            // err => dispatch(receiveEssayErrors(err.responseJSON))
     )
 );
