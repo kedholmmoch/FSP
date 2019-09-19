@@ -30,13 +30,13 @@ const App = () => (
     <Switch>
       <ProtectedRoute exact path="/users/:userId/essays/public"  // User essays
         component={UserPublishedContainer} />
-      <ProtectedRoute path="/users/:userId/essays/drafts"  // User drafts
+      <ProtectedRoute path="/users/:userId/essays/drafts"        // User drafts
         component={UserDraftsContainer} />
       <Route exact path="/users/:userId"                        // User profile
         component={UserProfileContainer} />
-      <ProtectedRoute exact path="/users/:userId/essays/new"                // New Essay Form
+      <ProtectedRoute exact path="/users/:userId/essays/new"  // New Essay Form
         component={CreateEssayFormContainer} />  
-      <ProtectedRoute exact path="/users/:userId/essays/:essayId/edit"     // Edit Essay Form
+      <ProtectedRoute exact path="/users/:userId/essays/:essayId/edit"   // Edit Essay Form
         component={UpdateEssayFormContainer} />           
       <Route exact path="/essays/:essayId"                   // Essay show page
         component={EssayShowContainer}/>

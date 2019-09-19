@@ -530,5 +530,64 @@ ActiveRecord::Base.transaction do
     image_url: "https://upload.wikimedia.org/wikipedia/commons/8/87/Vladimir_Nabokov_1973.jpg"
   )
 
+  user_2 = User.find_by(username: 'RSBourne')
+  user_2.update(
+    image_url: "https://mises-media.s3.amazonaws.com/styles/slideshow/s3/static-page/img/BarrantiRandolphBourne.jpg?itok=6ojLWwRL"
+  )
+
+  ess_1 = Essay.find_by(title: "Transnational America")
+  ess_1.update(
+    image_url: "https://images.unsplash.com/photo-1562131093-3ca758e279f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+  )
+
+  user_3 = User.find_by(username: 'SenecaMinor')
+  user_3.update(
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Seneca.JPG"
+  )
+
+  ess_2 = Essay.find_by(title: "On Saving Time")
+  ess_2.update(
+    image_url: "https://images.unsplash.com/photo-1565876202421-ef255602d0e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
+  )
+
+  user_4 = User.find_by(username: 'MississippiSam')
+  user_4.update(
+    image_url: "https://s26162.pcdn.co/wp-content/uploads/2017/10/Mark-Twain.jpg"
+  )
+
+  user_5 = User.find_by(username: 'SunOfSocrates')
+  user_5.update(
+    image_url: "http://www.borromeoseminary.org/wp-content/uploads/2013/10/PLATO.jpg"
+  )
+
+  ess_3 = Essay.find_by(title: "The Origin of Love")
+  ess_3.update(
+    image_url: "https://images.unsplash.com/photo-1535911062114-764574491173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  )
+
+  ess_4 = Essay.find_by(title: "Lorem Ipsum")
+  ess_4.update(
+    image_url: "https://images.unsplash.com/photo-1475139441338-693e7dbe20b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  )
+
+  user_6 = User.find_by(username: "UserDemo")
+  user_6.update(
+    image_url: "https://images.unsplash.com/photo-1555689572-28a3fb27533f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
+  )
+
+  ess_5 = Essay.find_by(title: "Crowds, Spectacles, and Other Reasons You Should Just Stay At Home")
+  ess_5.update(
+    image_url: "https://images.unsplash.com/photo-1483193722442-5422d99849bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  )
+
+  ess_6 = Essay.find_by(title: "On Groundless Fears")
+  ess_6.update(
+    image_url: "https://images.unsplash.com/photo-1459356067573-0a190eb1fcf5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
+  )
+
+  ess_7 = Essay.find_by(title: "Advice to Youth")
+  ess_7.update(
+    image_url: "https://images.unsplash.com/photo-1521220546621-cf34a1165c67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80"
+  )
 
 end

@@ -59,12 +59,14 @@ class Header extends React.Component {
     const { currentUser, logout, openModal } = this.props;
     
     const avatarLink = (user) => {
-      let fullName = user.profile_name;
-      let nameArray = fullName.split(" ");
-      let first = nameArray[0];
-      let last = nameArray[nameArray.length - 1];
+      // let fullName = user.profile_name;
+      // let nameArray = fullName.split(" ");
+      // let first = nameArray[0];
+      // let last = nameArray[nameArray.length - 1];
 
-      return first[0] + last[0];
+      // return first[0] + last[0];
+
+      return user.username[0];
     };
 
     let dropdownMenu;

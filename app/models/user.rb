@@ -30,6 +30,17 @@ class User < ApplicationRecord
     foreign_key: :user_id
 
 
+    ##  Querying, etc., methods
+
+    def essay_ids
+      self.essays.map do |essay|
+        essay.id
+      end
+    end
+
+
+    ##  Session methods
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)
