@@ -565,7 +565,7 @@ ActiveRecord::Base.transaction do
     image_url: "https://images.unsplash.com/photo-1535911062114-764574491173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   )
 
-  ess_4 = Essay.find_by(title: "Lorem Ipsum")
+  ess_4 = Essay.find_by(title: "How People Perceive Color Around the World")
   ess_4.update(
     image_url: "https://images.unsplash.com/photo-1475139441338-693e7dbe20b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   )
