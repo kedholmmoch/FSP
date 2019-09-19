@@ -5,11 +5,16 @@
   justify-content: center;
 }
 
+.essay-article-hold-div {
+  width: 100%;
+}
+
 .essay-article-topblank {
   margin-bottom: 30px;
   color: (0,0,0,.9);
   height: 15px; 
-  width: 100vw;
+  min-width: 100%;
+  max-width: 1398px;
   display: block;
   box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.05) inset;
 }
@@ -293,13 +298,14 @@
 
 .essay-article-footer {
   margin-top: 30px;
+  width: 100%;
   padding-top: 50px;
   padding-bottom: 25px;
   background-color: rgba(0,0,0,.9);
 }
 
 .essay-footer-content {
-  max-width: 1080px;
+  max-width: 1400px;
   padding-left: 24px;
   padding-right: 24px;
   width: 100%;

@@ -86,12 +86,22 @@ class UserProfile extends React.Component {
             </div>
           </div>
 
+          {/* <nav> Profile  Claps  Highlights  Replies </nav> */}
+
           <div className="user-content-display-box">
-            <h2>Featured</h2>
+            { (featured.length < 1) ? null :
+            <div>
+              <h4 className="profile-essay-index-label">Featured</h4>
               {essaysList(featured)}
+            </div>
+            }
             <br/>
-            <h2>Recent</h2>
+            { (remaining.length < 1) ? null :
+            <div>
+              <h4 className="profile-essay-index-label">Recent</h4>
               {essaysList(remaining)}
+            </div>
+            }
           </div>
         </div>
       </div>
