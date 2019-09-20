@@ -37,8 +37,6 @@ class FeedSidebar extends React.Component {
       return dateB - dateA;
     }
 
-    console.log(essays);
-
     let sortedEssays = essays.sort(compareUpdated);
 
     const recents = sortedEssays.slice(0, 3).map((essay, idx) => {

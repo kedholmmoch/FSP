@@ -518,13 +518,6 @@ seed_9.update(
   featured: false
 )
 
-=end
-
-## Up to this point is current in my database and on Heroku
-
-ActiveRecord::Base.transaction do
-
-  ## already in local DB
   user_1 = User.find_by(username: 'Lolitterateur')
   user_1.update(
     image_url: "https://upload.wikimedia.org/wikipedia/commons/8/87/Vladimir_Nabokov_1973.jpg"
@@ -589,5 +582,12 @@ ActiveRecord::Base.transaction do
   ess_7.update(
     image_url: "https://images.unsplash.com/photo-1521220546621-cf34a1165c67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80"
   )
+
+=end
+
+## Up to this point is current in my database and on Heroku
+
+ActiveRecord::Base.transaction do
+
 
 end
