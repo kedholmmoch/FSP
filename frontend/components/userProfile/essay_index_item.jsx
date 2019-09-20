@@ -31,11 +31,13 @@ export const EssayIndexItem = ({ essay, author }) => {
         </div>
 
         <div className="essay-index-item-body">
+          { (!essay.image_url) ? null :
           <div className="essay-index-item-figure">
             <Link to={`/essays/${essay.id}`}>
               <img src={essay.image_url} />
             </Link>
           </div>
+          }
           <div className="essay-index-item-title">
             <Link to={`/essays/${essay.id}`}>
               {essay.title}
