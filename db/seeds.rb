@@ -583,14 +583,15 @@ seed_9.update(
     image_url: "https://images.unsplash.com/photo-1521220546621-cf34a1165c67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80"
   )
 
+  nab = Essay.find_by(title: "Good Readers and Good Writers")
+  nab.image_url = "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+  nab.save!
+
 =end
 
 ## Up to this point is current in my database and on Heroku
 
 ActiveRecord::Base.transaction do
 
-  nab = Essay.find_by(title: "Good Readers and Good Writers")
-  nab.image_url = "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-  nab.save!
 
 end
