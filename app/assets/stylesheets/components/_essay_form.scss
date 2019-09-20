@@ -132,11 +132,29 @@
   z-index: 1;
 }
 
+.form-publish-button {
+  height: 38px;
+  width: 115px;
+  border: 1px solid rgba(0,0,0,0.15);
+  padding: 0 16px;
+  border-radius: 4px;
+  color: rgb(8, 134, 101);
+  border-color: rgb(8, 134, 101);
+  font-size: 13px;
+  text-align: center;
+  vertical-align: center;
+  position: absolute;
+  top: 110px;
+  right: -141px;
+  z-index: 1;
+}
+
 .form-process-button:hover {
   color: rgb(8, 134, 101);
   border-color: rgb(8, 134, 101);
 }
 
-.title-sizing-div {
-
+.form-publish-button:hover {
+  color: darkred;
+  border-color: darkred;
 }

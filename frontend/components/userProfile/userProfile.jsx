@@ -36,8 +36,6 @@ class UserProfile extends React.Component {
 
     let essays = Object.values(this.state.essays);
 
-    console.log(essays);
-
     let featured = [];
     let remaining = [];
 

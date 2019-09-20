@@ -7,5 +7,6 @@
         json.set! :word_count, essay.word_count
         json.set! :minutes_to_read, essay.minutes_to_read
         json.set! :updated_at_string, essay.updated_at.to_s
+        json.set! :published_at_string, essay.published_at.to_s
     end
 end

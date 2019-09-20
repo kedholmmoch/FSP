@@ -14,6 +14,7 @@ class EssayForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.publishEssay = this.publishEssay.bind(this);
 
   }
 
@@ -46,6 +47,19 @@ class EssayForm extends React.Component {
       .then(() => this.props.history.push(`/users/${currentUser.id}/essays/drafts`));
   }
 
+  publishEssay(e) {
+    e.preventDefault();
+    const currentUser = this.props.currentUser;
+    const datetime = new Date().getTime();
+    const essay = Object.assign({}, this.state.essay);
+    essay['published'] = true;
+    this.setState({ essay: {
+      published: true,
+      to_publish: true,
+    }}, () => this.props.action(essay)
+      .then(() => this.props.history.push(`/users/${currentUser.id}/essays/drafts`)))
+  }
+
   render(){
 
     if (!this.state.essay) {
@@ -53,11 +67,6 @@ class EssayForm extends React.Component {
     }
 
     const {currentUser} = this.props;
-
-    console.log("PROPS")
-    console.log(this.props.essay);
-    console.log("STATE")
-    console.log(this.state.essay);
 
     return(
       <article className="essay-form-box">
@@ -73,6 +82,8 @@ class EssayForm extends React.Component {
                 <input className="form-process-button"
                   type="submit" value={`${this.props.formType}`}
                 />
+                <button className="form-publish-button"
+                  onClick={this.publishEssay}>Publish essay</button>
                 <div className="title-sizing-div">
                   <label className="essay-form-title">
                     <textarea placeholder="Title" value={this.state.essay.title} onChange={this.handleChange('title')}/>

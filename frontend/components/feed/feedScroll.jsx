@@ -58,9 +58,11 @@ class FeedScroll extends React.Component {
               </div>
             </div>
           </div>
-
-          <Link className="scroll-item-img" to={`/essays/${essay.id}`}>
-            <img src={essay.image_url} alt={essay.title} /></Link>
+          { 
+            (!essay.image_url) ? <div className="scroll-item-img"></div> :
+              <Link className="scroll-item-img" to={`/essays/${essay.id}`}>
+                <img src={essay.image_url} alt={essay.title} /></Link>
+          }
         </li>
       )
     })

@@ -7,6 +7,10 @@ import moment from 'moment';
 class FeedSidebar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      essays: this.props.essays,
+    }
   }
 
   render() {
@@ -21,16 +25,38 @@ class FeedSidebar extends React.Component {
 
     // const recents = this.props.essays.sort(compareUpdated).take(3).map
 
-    const recents = this.props.essays.slice(0, 3).map((essay, idx) => {
+    let essays = this.props.essays;
+
+    if ( essays === undefined ) {
+      return null
+    }
+
+    function compareUpdated(essayA, essayB) {
+      let dateA = Date.parse(essayA.published_at_string);
+      let dateB = Date.parse(essayB.published_at_string);
+      return dateB - dateA;
+    }
+
+    console.log(essays);
+
+    let sortedEssays = essays.sort(compareUpdated);
+
+    const recents = sortedEssays.slice(0, 3).map((essay, idx) => {
+    // const recents = this.props.essays.slice(0, 3).map((essay, idx) => {
       const datetime = moment(essay["published_at"]).format("MMM Do");
       const minutesToRead = essay["minutes_to_read"];
 
       return (
         <li key={`essay-${idx}`}>
+
+          { essay.image_url ? (
           <Link to={`/essays/${essay.id}`}>
             <img className="recent-item-img" 
                 src={essay.image_url} alt={essay.title} />
           </Link>
+          ) : ( <div className="empty-essay-img"></div> )
+          }
+          
           <div className="recent-item-info">
             <Link className="recent-item-title" to={`/essays/${essay.id}`}>
               {essay.title}</Link>

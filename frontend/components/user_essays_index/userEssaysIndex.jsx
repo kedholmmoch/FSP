@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import moment from 'moment';
 
 class UserEssaysIndex extends React.Component {
@@ -8,10 +8,14 @@ class UserEssaysIndex extends React.Component {
 
     this.state = {
       isFetching: true,
+      showUtility: false,
       essays: this.props.essays,
     }
 
-    // this.handleDelete = this.handleDelete.bind(this);
+    this.handleDelete2 = this.handleDelete2.bind(this);
+    // this.showUtility = this.showUtility.bind(this);
+    // this.closeUtility = this.closeUtility.bind(this);
+    // this.toEditFromUtility = this.toEditFromUtility.bind(this);
   }
 
   componentDidMount() {
@@ -26,10 +30,53 @@ class UserEssaysIndex extends React.Component {
       })
   }
 
-  handleDelete(id) {
-    this.setState({ isFetching: true });
-    this.props.deleteEssay(id)
-      .then(() => this.removeDeleted(id));
+  // showUtility(essayId, event) {
+  //   event.preventDefault();
+  //   this.setState({
+  //     showUtility: essayId,
+  //   }, () => {
+  //     document.addEventListener('click', this.closeUtility);
+  //   });
+  // }
+
+  // closeUtility(event) {
+  //   if (!this.utilityDOMel.contains(event.currentTarget)) {
+  //     this.setState({
+  //       showUtility: false,
+  //     }, () => {
+  //       document.removeEventListener('click', this.closeUtility);
+  //     });
+  //   }
+  // }
+
+  // toEditFromUtility(e, id){
+  //   e.preventDefault();
+  //   this.closeUtility()
+  //     .then(() => this.props.history.push(`/users/${this.props.currentUser.id}/essays/${id}/edit`));
+  // }
+
+  // handleDelete(event, id) {
+  //   event.preventDefault();
+  //   this.setState({ isFetching: true });
+  //   this.props.deleteEssay(id)
+  //     .then(() => this.removeDeleted(id))
+  //     .then(() => this.closeUtility());
+  // }
+
+  handleDelete2(id) {
+    return (e) => {
+      this.setState({ isFetching: true },
+      () => {
+        this.props.deleteEssay(id)
+          .then(() => this.removeDeleted(id));
+            // .then(() => this.closeUtility());
+        }
+      )
+      // this.setState({
+      //   essays: this.props.essays,
+      //   isFetching: false,
+      // }),
+    }
   }
 
   removeDeleted(id) {
@@ -56,8 +103,6 @@ class UserEssaysIndex extends React.Component {
       return dateB - dateA;
     }
 
-    console.log(essays);
-
     let sortedEssays = essays.sort(compareUpdated)
 
     let essaysList = sortedEssays.map((essay, idx) => {
@@ -65,6 +110,19 @@ class UserEssaysIndex extends React.Component {
       let lastEdited = moment(essay["updated_at"]).fromNow();
       let minutesToRead = essay["minutes_to_read"];
       let wordCount = essay["word_count"];
+
+      let utilityMenu;
+      utilityMenu = (this.state.showUtility === essay.id) ? (
+        <div className="utility"
+          ref={(element) => {
+            this.utilityDOMel = element;
+          }}
+        >
+          {/* <button onClick={(e) => this.toEditFromUtility.bind(this, e, essay.id)}>Edit draft</button> */}
+          {/* <button onClick={(e) => this.handleDelete.bind(this, e, essay.id)}>Delete draft</button> */}
+          {/* <button onClick={this.handleDelete2(essay.id)}>Delete draft</button> */}
+        </div>
+      ) : null ;
 
       return (
         <li key={`user${currentUser.id}-essay${idx}`}>
@@ -90,12 +148,15 @@ class UserEssaysIndex extends React.Component {
               </span>
             </div> 
             <div className="user-essay-index-item-options">
-              <button><i className="fas fa-chevron-down"></i></button>
-              <div>
+              <div className="edit-essay-button">
                 <Link to={`/users/${currentUser.id}/essays/${essay.id}/edit`}>
-                  Edit draft</Link>
-                <button onClick={this.handleDelete.bind(this, essay.id)}>Delete draft</button>
+                  Edit</Link>
               </div>
+              <button className="delete-essay-button" onClick={this.handleDelete2(essay.id)}>Delete</button>
+              {/* <button onClick={this.showUtility.bind(this, essay.id)}><i className="fas fa-chevron-down"></i></button>
+              <div className="utility-background">
+                {utilityMenu}
+              </div> */}
             </div>
           </div>
         </li>
@@ -143,4 +204,4 @@ class UserEssaysIndex extends React.Component {
   }
 }
 
-export default UserEssaysIndex;
+export default withRouter(UserEssaysIndex);
