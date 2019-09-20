@@ -589,5 +589,8 @@ seed_9.update(
 
 ActiveRecord::Base.transaction do
 
+  nab = Essay.find_by(title: "Good Readers and Good Writers")
+  nab.image_url = "https://cdn-images-1.medium.com/fit/c/152/156/0*F2KoTRu8rUDJUmUI."
+  nab.save!
 
 end
